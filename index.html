@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#8584bd" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="apple-mobile-web-app-title" content="Scholar Speak" />
+  <meta name="description" content="大学院レベルの英単語を文脈つきで暗唱するための学習ラボ" />
+  <title>Scholar Speak — 大学院レベル英単語</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon-180.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- App bar -->
+    <header class="appbar" id="appbar">
+      <div class="appbar-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span class="brand-name">SCHOLAR SPEAK</span>
+        </div>
+        <div class="appbar-actions">
+          <button class="icon-btn" id="reloadBtn" title="データ再読込" aria-label="データ再読込">⟳</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Screens container -->
+    <main id="main" class="main">
+      <!-- HOME -->
+      <section class="screen" id="screen-home" data-screen="home">
+        <div class="screen-pad">
+          <div class="hero">
+            <p class="hero-eyebrow">Scholar Speak — 大学院英語ラボ</p>
+            <h1 class="hero-title">おかえりなさい</h1>
+            <p class="hero-sub" id="homeDateSub">—</p>
+          </div>
+
+          <div class="ring-card card">
+            <div class="ring-wrap">
+              <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="ring-track" cx="60" cy="60" r="52" />
+                <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="52" />
+              </svg>
+              <div class="ring-center">
+                <span class="ring-pct" id="ringPct">0%</span>
+                <span class="ring-lbl">習得率</span>
+              </div>
+            </div>
+            <div class="ring-stats">
+              <div class="stat">
+                <span class="stat-num" id="statDue">0</span>
+                <span class="stat-lbl">本日の復習</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num" id="statNew">0</span>
+                <span class="stat-lbl">新規</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num" id="statMastered">0</span>
+                <span class="stat-lbl">習得済み</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block" id="startStudyBtn">学習を開始する</button>
+
+          <h2 class="section-title">デッキ</h2>
+          <div class="deck-list" id="deckList"></div>
+        </div>
+      </section>
+
+      <!-- STUDY (flashcards) -->
+      <section class="screen" id="screen-study" data-screen="study" hidden>
+        <div class="study-mode-toggle" id="studyModeToggle">
+          <button class="mode-btn active" data-mode="card">カード</button>
+          <button class="mode-btn" data-mode="quiz">4択</button>
+        </div>
+        <div class="study-topbar">
+          <div class="progress-bar"><div class="progress-bar-fill" id="studyProgress"></div></div>
+          <span class="study-count" id="studyCount">0 / 0</span>
+        </div>
+        <div class="study-body" id="studyBody">
+          <div class="flashcard-scene">
+            <div class="flashcard" id="flashcard">
+              <div class="flashcard-face flashcard-front" id="cardFront"></div>
+              <div class="flashcard-face flashcard-back" id="cardBack"></div>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-body" id="quizBody" hidden>
+          <div class="quiz-prompt" id="quizPrompt"></div>
+          <p class="quiz-feedback" id="quizFeedback"></p>
+          <div class="quiz-choices" id="quizChoices"></div>
+        </div>
+        <div class="study-actions" id="studyActions">
+          <button class="grade-btn grade-again" data-grade="again">
+            <span class="grade-emoji">↺</span><span class="grade-txt">もう一度</span>
+          </button>
+          <button class="grade-btn grade-hard" data-grade="hard">
+            <span class="grade-emoji">〜</span><span class="grade-txt">わからない</span>
+          </button>
+          <button class="grade-btn grade-good" data-grade="good">
+            <span class="grade-emoji">✓</span><span class="grade-txt">覚えた!</span>
+          </button>
+        </div>
+        <div class="study-done" id="studyDone" hidden>
+          <div class="done-icon">✦</div>
+          <h2>セッション完了</h2>
+          <p id="doneSummary">お疲れさまでした。</p>
+          <button class="btn btn-primary" id="studyDoneHome">ホームへ戻る</button>
+        </div>
+      </section>
+
+      <!-- SENTENCE PRACTICE -->
+      <section class="screen" id="screen-sentence" data-screen="sentence" hidden>
+        <div class="screen-pad">
+          <div class="sentence-head">
+            <h1 class="page-title">センテンス練習</h1>
+            <p class="page-sub">日本語→英文を想起→シャドーイング</p>
+          </div>
+          <div class="sentence-topbar">
+            <span class="study-count" id="sentCount">0 / 0</span>
+            <label class="blank-toggle">
+              <input type="checkbox" id="blankToggle" />
+              <span>穴埋め</span>
+            </label>
+          </div>
+          <div class="sentence-card card" id="sentenceCard">
+            <span class="sent-scene-badge" id="sentScene">presentation</span>
+            <p class="sent-term" id="sentTerm">—</p>
+            <p class="sent-ja" id="sentJa">日本語訳</p>
+            <div class="sent-en-wrap" id="sentEnWrap" hidden>
+              <p class="sent-en" id="sentEn">English</p>
+            </div>
+            <button class="reveal-hint" id="sentReveal">タップで英文を表示</button>
+            <div class="sent-controls" id="sentControls" hidden>
+              <button class="btn btn-tts" id="sentSpeak">🔊 シャドーイング</button>
+            </div>
+          </div>
+          <div class="sentence-nav">
+            <button class="btn btn-ghost" id="sentPrev">← 前へ</button>
+            <button class="btn btn-ghost" id="sentNext">次へ →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIST / SEARCH -->
+      <section class="screen" id="screen-list" data-screen="list" hidden>
+        <div class="screen-pad">
+          <h1 class="page-title">一覧 / 検索</h1>
+          <div class="search-wrap">
+            <input type="search" id="searchInput" class="search-input" placeholder="単語・意味を検索" autocomplete="off" />
+          </div>
+          <div class="filter-row" id="filterRow">
+            <select class="chip-select" id="filterDeck"><option value="">全デッキ</option></select>
+            <select class="chip-select" id="filterType">
+              <option value="">全タイプ</option>
+              <option value="word">単語</option>
+              <option value="phrase">言い回し</option>
+            </select>
+            <select class="chip-select" id="filterStatus">
+              <option value="">全状態</option>
+              <option value="new">未学習</option>
+              <option value="learning">学習中</option>
+              <option value="review">復習</option>
+              <option value="mastered">習得済み</option>
+            </select>
+          </div>
+          <p class="list-count" id="listCount">0 件</p>
+          <div class="entry-list" id="entryList"></div>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="screen" id="screen-settings" data-screen="settings" hidden>
+        <div class="screen-pad">
+          <h1 class="page-title">設定</h1>
+
+          <div class="settings-group card">
+            <h2 class="settings-title">発音 (TTS)</h2>
+            <label class="field">
+              <span class="field-label">音声</span>
+              <select id="voiceSelect" class="field-input"></select>
+            </label>
+            <label class="field">
+              <span class="field-label">速度 <em id="rateVal">0.9</em></span>
+              <input type="range" id="rateSlider" min="0.6" max="1.1" step="0.05" value="0.9" />
+            </label>
+            <button class="btn btn-ghost" id="testVoice">🔊 テスト再生</button>
+            <p class="settings-note">より自然な声にするには iOS設定→アクセシビリティ→読み上げコンテンツ→声→英語 で高品質声を追加ダウンロードし、ここで選択。</p>
+          </div>
+
+          <div class="settings-group card">
+            <h2 class="settings-title">統計</h2>
+            <div class="stat-grid" id="statGrid"></div>
+          </div>
+
+          <div class="settings-group card">
+            <h2 class="settings-title">データ</h2>
+            <button class="btn btn-ghost btn-block" id="reloadData">データを再読込</button>
+            <button class="btn btn-danger btn-block" id="resetProgress">進捗をリセット</button>
+          </div>
+
+          <p class="version-note" id="versionNote">Scholar Speak</p>
+        </div>
+      </section>
+
+      <!-- EMPTY / ERROR STATE -->
+      <section class="screen" id="screen-empty" data-screen="empty" hidden>
+        <div class="empty-state">
+          <div class="empty-icon">☁︎</div>
+          <h2>データ未読込</h2>
+          <p id="emptyMsg">単語データ (data/words.json) を読み込めませんでした。<br />オンライン状態を確認して再読込してください。</p>
+          <button class="btn btn-primary" id="emptyReload">再読込</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom sheet (card detail) -->
+    <div class="sheet-backdrop" id="sheetBackdrop" hidden>
+      <div class="bottom-sheet" id="bottomSheet" role="dialog" aria-modal="true">
+        <div class="sheet-handle"></div>
+        <div class="sheet-content" id="sheetContent"></div>
+      </div>
+    </div>
+
+    <!-- Bottom tab nav -->
+    <nav class="tabbar" id="tabbar">
+      <button class="tab" data-tab="home" aria-label="ホーム">
+        <span class="tab-icon">⌂</span><span class="tab-lbl">ホーム</span>
+      </button>
+      <button class="tab" data-tab="study" aria-label="学習">
+        <span class="tab-icon">✦</span><span class="tab-lbl">学習</span>
+      </button>
+      <button class="tab" data-tab="sentence" aria-label="センテンス">
+        <span class="tab-icon">“”</span><span class="tab-lbl">センテンス</span>
+      </button>
+      <button class="tab" data-tab="list" aria-label="一覧">
+        <span class="tab-icon">☰</span><span class="tab-lbl">一覧</span>
+      </button>
+      <button class="tab" data-tab="settings" aria-label="設定">
+        <span class="tab-icon">⚙</span><span class="tab-lbl">設定</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

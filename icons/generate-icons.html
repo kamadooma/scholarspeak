@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Scholar Speak アイコン生成</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; background:#F5F1EA; color:#2B2622; padding:24px; }
+  h1 { font-size:20px; }
+  p { color:#6B6259; font-size:14px; line-height:1.6; }
+  .row { display:flex; gap:16px; flex-wrap:wrap; margin:20px 0; }
+  .item { text-align:center; }
+  canvas { border:1px solid #E6DED2; border-radius:12px; background:#fff; }
+  a.dl { display:inline-block; margin-top:8px; font-size:13px; color:#C15F3E; font-weight:600; text-decoration:none; }
+  button { margin-top:8px; padding:10px 16px; border:none; border-radius:10px; background:#D97757; color:#fff; font-weight:600; }
+</style>
+</head>
+<body>
+  <h1>Scholar Speak アイコン生成</h1>
+  <p>ImageMagick 等が使えない環境向けのフォールバックです。下のボタンで <code>icon-180.png / icon-192.png / icon-512.png</code> を <code>icon.svg</code> からブラウザ内で生成・ダウンロードできます。ダウンロードしたファイルをこの <code>icons/</code> フォルダに置いてください。</p>
+  <div class="row" id="row"></div>
+  <button id="all">3サイズすべてダウンロード</button>
+
+<script>
+const SIZES = [180, 192, 512];
+const row = document.getElementById('row');
+
+async function loadSvg() {
+  const res = await fetch('icon.svg');
+  const text = await res.text();
+  const blob = new Blob([text], { type: 'image/svg+xml' });
+  return URL.createObjectURL(blob);
+}
+
+function render(url, size) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement('canvas');
+      c.width = size; c.height = size;
+      const ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0, size, size);
+      resolve(c);
+    };
+    img.src = url;
+  });
+}
+
+let cards = [];
+(async () => {
+  const url = await loadSvg();
+  for (const s of SIZES) {
+    const canvas = await render(url, s);
+    const disp = Math.min(s, 160);
+    const item = document.createElement('div');
+    item.className = 'item';
+    canvas.style.width = disp + 'px'; canvas.style.height = disp + 'px';
+    const link = document.createElement('a');
+    link.className = 'dl';
+    link.textContent = `icon-${s}.png`;
+    const dataURL = canvas.toDataURL('image/png');
+    link.href = dataURL; link.download = `icon-${s}.png`;
+    const wrap = document.createElement('div');
+    wrap.appendChild(canvas);
+    wrap.appendChild(document.createElement('br'));
+    wrap.appendChild(link);
+    item.appendChild(wrap);
+    row.appendChild(item);
+    cards.push({ size: s, href: dataURL });
+  }
+})();
+
+document.getElementById('all').addEventListener('click', () => {
+  cards.forEach(({ size, href }, i) => {
+    setTimeout(() => {
+      const a = document.createElement('a');
+      a.href = href; a.download = `icon-${size}.png`;
+      document.body.appendChild(a); a.click(); a.remove();
+    }, i * 400);
+  });
+});
+</script>
+</body>
+</html>
