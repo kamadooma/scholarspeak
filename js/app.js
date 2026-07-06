@@ -499,9 +499,8 @@ function answerQuiz(e, chosen, choices) {
       <div class="quiz-verdict ng">${chosen === null ? 'わからん' : '不正解'}</div>
       <div class="quiz-answer"><span class="quiz-answer-label">答え</span>${esc(correct)}
         <span class="quiz-answer-term">${esc(e.term)}${e.ipa ? ' ' + esc(e.ipa) : ''}</span></div>
-      <button class="btn btn-primary" id="quizNextBtn">次へ</button>`;
-    $('#quizNextBtn').addEventListener('click', advanceQuiz);
-    speak(e.term);
+      <button type="button" class="btn btn-primary" id="quizNextBtn">次へ</button>`;
+    try { speak(e.term); } catch (_) {}
   }
 }
 
@@ -511,6 +510,14 @@ function advanceQuiz() {
   if (s.index >= s.queue.length) { finishStudy(false); return; }
   renderStudyStep();
 }
+
+// 「次へ」はイベント委任で確実に拾う(iOS Safari対策)
+document.addEventListener('click', (ev) => {
+  if (ev.target && ev.target.closest && ev.target.closest('#quizNextBtn')) {
+    ev.preventDefault();
+    advanceQuiz();
+  }
+});
 
 function buildCardBack(e) {
   const parts = [];
