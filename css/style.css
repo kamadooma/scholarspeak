@@ -539,6 +539,97 @@ em { font-style: normal; }
 .status-review { background: var(--magenta-punch); }
 .status-mastered { background: var(--matcha-cream); }
 
+/* ---------- Dictionary (じっくり学習 / 読み物ページ) ---------- */
+.dict-controls { display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--gap); }
+.dict-deck {
+  align-self: flex-start; padding: 8px 14px; border-radius: var(--radius-pill);
+  border: 2px solid var(--on-violet); background: transparent;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.03em; color: var(--on-violet);
+  -webkit-appearance: none; appearance: none; max-width: 100%;
+}
+.dict-search-wrap { margin-bottom: 0; }
+.dict-list { display: flex; flex-direction: column; gap: var(--gap); }
+
+/* one word = one reading card, fully expanded */
+.dict-card {
+  padding: var(--pad);
+  /* readability first: generous body copy, comfortable line-height */
+}
+.dict-head { margin-bottom: 14px; }
+.dict-head-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.dict-type-badge {
+  font-family: var(--mono);
+  font-size: 11px; font-weight: 700; letter-spacing: .06em;
+  color: var(--ink); background: transparent;
+  padding: 3px 11px; border: 2px solid var(--ink); border-radius: var(--radius-pill);
+  text-transform: uppercase;
+}
+.dict-status {
+  font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  color: var(--ink); background: transparent;
+  padding: 3px 11px; border: 2px solid var(--ink); border-radius: var(--radius-pill);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.dict-status::before {
+  content: ""; width: 9px; height: 9px; border-radius: 50%;
+  border: 2px solid var(--ink); flex-shrink: 0;
+}
+.dict-status.status-new::before { background: transparent; }
+.dict-status.status-learning::before { background: var(--buttery-yellow); }
+.dict-status.status-review::before { background: var(--magenta-punch); }
+.dict-status.status-mastered::before { background: var(--matcha-cream); }
+
+.dict-term {
+  font-family: var(--display);
+  font-size: clamp(44px, 15vw, 80px);
+  font-weight: 900;
+  letter-spacing: 0.02em; line-height: 0.85;
+  color: var(--ink);
+  text-transform: uppercase;
+  overflow-wrap: normal; word-break: keep-all; max-width: 100%;
+}
+.dict-term.is-single { white-space: nowrap; }
+.dict-term.is-multi { white-space: normal; }
+.dict-metarow { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.dict-ipa { font-family: var(--mono); color: var(--ink); font-size: 13px; letter-spacing: 0.03em; }
+.dict-speak {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: transparent; color: var(--ink);
+  font-size: 18px; border: 2px solid var(--ink); display: grid; place-items: center; flex-shrink: 0;
+}
+.dict-speak:active { transform: scale(.92); background: var(--buttery-yellow); }
+.dict-pos { font-family: var(--mono); color: var(--ink); font-size: 11px; letter-spacing: 0.04em; margin-top: 10px; text-transform: uppercase; opacity: .8; }
+
+.dict-meaning { font-size: 21px; font-weight: 700; line-height: 1.5; margin: 4px 0 6px; color: var(--ink); }
+.dict-gloss { font-size: 15px; line-height: 1.6; color: var(--ink); opacity: .78; margin-bottom: 18px; }
+
+/* dictionary body copy: larger + airier than flashcard back (reading-first) */
+.dict-card .fc-block p, .dict-card .ex-en, .dict-card .ex-ja { font-size: 15px; line-height: 1.7; }
+.dict-card .fc-block { margin-bottom: 18px; }
+
+.dict-lex-row { margin-bottom: 12px; }
+.dict-lex-row:last-child { margin-bottom: 0; }
+.dict-lex-label {
+  display: block; font-family: var(--mono);
+  font-size: 11px; font-weight: 700; letter-spacing: .06em;
+  color: var(--ink); text-transform: uppercase; margin-bottom: 7px;
+}
+.dict-say { margin-left: 4px; padding: 1px 8px; font-size: 12px; }
+
+.dict-actions { margin-top: 18px; padding-top: 16px; border-top: 2px solid var(--ink); }
+.dict-learned-btn {
+  width: 100%; padding: 13px; border-radius: var(--radius-pill);
+  background: var(--bone-white); color: var(--pure-black);
+  border: 2px solid var(--pure-black);
+  font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+  transition: transform .08s;
+}
+.dict-learned-btn:active { transform: scale(.98); background: var(--buttery-yellow); }
+.dict-learned-btn.is-done {
+  background: var(--matcha-cream); border-color: var(--pure-black); color: var(--ink-black);
+  pointer-events: none;
+}
+
 /* ---------- Settings ---------- */
 .settings-group { padding: var(--pad); margin-bottom: var(--gap); }
 .settings-title { font-family: var(--display); font-size: 24px; font-weight: 900; line-height: 0.9; text-transform: uppercase; margin-bottom: 16px; color: var(--ink); }
@@ -616,8 +707,14 @@ input[type="range"]::-webkit-slider-thumb {
   gap: 4px; color: var(--bone-white);
 }
 .tab-icon { font-size: 18px; line-height: 1; }
-.tab-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.02em; }
+.tab-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.02em; white-space: nowrap; }
 .tab.active { color: var(--hi-vis-yellow); }
+/* 6 tabs: tighten label typography so nothing wraps on narrow phones */
+@media (max-width: 400px) {
+  .tab { gap: 3px; }
+  .tab-icon { font-size: 16px; }
+  .tab-lbl { font-size: 9px; letter-spacing: 0; }
+}
 
 /* ---------- Study mode toggle (Card / Quiz segmented) ---------- */
 .study-mode-toggle {
@@ -737,3 +834,58 @@ input[type="range"]::-webkit-slider-thumb {
 .quiz-feedback.ok { color: var(--matcha-cream); }
 .quiz-feedback.ng { color: var(--bubblegum-pink); font-size: 16px; text-transform: none; line-height: 1.5; }
 .quiz-next { display: block; width: 100%; margin-top: 12px; font-size: 17px; padding: 14px; }
+
+/* ---------- 2択(スピード)モード: 大きめボタン ---------- */
+.quiz-choices-speed { gap: 16px; }
+.quiz-choice-big {
+  padding: 26px 18px; font-size: 20px; line-height: 1.35;
+  text-align: center; min-height: 74px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---------- クイズ詳細フィードバック(正解・不正解共通) ---------- */
+.quiz-feedback { text-align: left; }
+/* フィードバック内はブロック要素を積むのでテキスト整形を通常に戻す */
+.quiz-feedback.ok, .quiz-feedback.ng {
+  font-family: var(--sans); font-weight: 400; text-transform: none;
+  letter-spacing: normal; font-size: 15px; line-height: 1.5;
+}
+.qf-verdict {
+  font-family: var(--display); font-weight: 900; text-transform: uppercase;
+  font-size: 26px; line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 10px;
+}
+.qf-verdict.ok { color: var(--matcha-cream); }
+.qf-verdict.ng { color: var(--bubblegum-pink); }
+.qf-answer {
+  background: var(--hi-vis-yellow); color: var(--pure-black);
+  border: 2px solid var(--pure-black); border-radius: var(--radius-card);
+  padding: 12px 14px; font-size: 17px; font-weight: 700; line-height: 1.5;
+  margin-bottom: 12px;
+}
+.qf-answer-label {
+  display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .07em; border: 2px solid var(--pure-black); border-radius: var(--radius-pill);
+  padding: 2px 9px; margin-right: 9px; vertical-align: middle;
+}
+.qf-example {
+  background: var(--card); color: var(--ink);
+  border: 2px solid var(--ink); border-radius: var(--radius-card);
+  padding: 13px 15px; margin-bottom: 14px;
+}
+.qf-ex-en { font-size: 15px; font-weight: 700; line-height: 1.55; color: var(--ink); }
+.qf-ex-ja { font-size: 13px; line-height: 1.55; color: var(--ink); opacity: .72; margin-top: 6px; }
+.qf-actions { display: flex; gap: 10px; }
+.qf-actions .qf-more { flex: 0 0 auto; padding: 13px 18px; }
+.qf-actions #quizNextBtn.qf-next { flex: 1; width: auto; margin-top: 0; }
+
+/* ---------- 辞書「学習に戻る」復帰バー ---------- */
+.dict-return-bar { margin: 0 0 16px; }
+
+/* もっと詳しくで飛んできた対象カードのハイライト */
+.dict-card-focus { border-color: var(--magenta-punch); border-width: 3px; }
+
+/* 3タブのモードトグル: 狭い画面でラベルが潰れないよう調整 */
+.study-mode-toggle .mode-btn { padding: 9px 0; }
+@media (max-width: 360px) {
+  .study-mode-toggle .mode-btn { font-size: 11px; letter-spacing: 0.03em; }
+}

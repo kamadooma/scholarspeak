@@ -8,18 +8,20 @@ const PROGRESS_KEY = 'lexilab-progress-v1';
 const SETTINGS_KEY = 'lexilab-settings-v1';
 const SRS_INTERVALS = [0, 1, 3, 7, 14, 30]; // days by step
 const MASTER_STEP = 5;
+const MASTER_CORRECT = 5; // 正解が累計5回で習得(mastered)
 
 /* ---------- State ---------- */
 const State = {
   meta: null,
   entries: [],
   byId: new Map(),
-  progress: {},        // id -> { status, step, due (ISO date), lastReviewed }
+  progress: {},        // id -> { status, step, due (ISO date), lastReviewed, correctCount }
   settings: { rate: 0.9, voiceURI: '' },
   // study session
   session: { queue: [], index: 0, active: false },
-  studyMode: 'quiz',   // 'quiz'(基本) | 'card'(サブ)
+  studyMode: 'quiz',   // 'quiz'(4択・既定) | 'quiz2'(2択スピード) | 'card'(フラッシュカード)
   quizLock: false,     // block input during answer transition
+  returnTo: null,      // 「もっと詳しく」で辞書に飛んだ後、学習に戻るための復帰情報
   // sentence practice
   sent: { items: [], index: 0 },
   voices: [],
@@ -96,7 +98,10 @@ function saveSettings() {
 function ensureProgress() {
   for (const e of State.entries) {
     if (!State.progress[e.id]) {
-      State.progress[e.id] = { status: 'new', step: 0, due: todayStr(), lastReviewed: null };
+      State.progress[e.id] = { status: 'new', step: 0, due: todayStr(), lastReviewed: null, correctCount: 0 };
+    } else if (typeof State.progress[e.id].correctCount !== 'number') {
+      // 既存進捗に correctCount が無ければ 0 とみなす
+      State.progress[e.id].correctCount = 0;
     }
   }
 }
@@ -132,7 +137,8 @@ function statusForStep(step) {
 }
 
 function applyGrade(id, grade) {
-  const p = State.progress[id] || { status: 'new', step: 0, due: todayStr(), lastReviewed: null };
+  const p = State.progress[id] || { status: 'new', step: 0, due: todayStr(), lastReviewed: null, correctCount: 0 };
+  if (typeof p.correctCount !== 'number') p.correctCount = 0;
   if (grade === 'again') {
     p.step = 0;
   } else if (grade === 'hard') {
@@ -140,27 +146,30 @@ function applyGrade(id, grade) {
     p.step = Math.max(0, p.step);
   } else if (grade === 'good') {
     p.step = Math.min(MASTER_STEP, p.step + 1);
+    p.correctCount += 1; // 正解ごとに累積(不正解ではリセットしない)
   }
   const interval = SRS_INTERVALS[Math.min(p.step, SRS_INTERVALS.length - 1)];
   p.due = addDaysStr(interval);
   p.status = statusForStep(p.step);
   if (p.status === 'new') p.status = 'learning';
+  // 習得判定: correctCount>=5 を最優先(SRS step 判定より優先)
+  if (p.correctCount >= MASTER_CORRECT) p.status = 'mastered';
   p.lastReviewed = todayStr();
   State.progress[id] = p;
   saveProgress();
 }
 
-/* Build the study queue: due cards first, then new, cap reasonable */
+/* Build the study queue: mastered は除外。due と new を集めて毎回シャッフル。 */
 function buildStudyQueue(deckId) {
-  const due = [];
-  const fresh = [];
+  const pool = [];
   for (const e of State.entries) {
     if (deckId && e.deck !== deckId) continue;
     const p = State.progress[e.id];
-    if (!p || p.status === 'new') { fresh.push(e); continue; }
-    if (isDue(p)) due.push(e);
+    if (p && p.status === 'mastered') continue; // 習得済みは通常出題しない
+    if (!p || p.status === 'new') { pool.push(e); continue; }
+    if (isDue(p)) pool.push(e);
   }
-  return [...due, ...fresh];
+  return shuffle(pool); // 出題順はランダム
 }
 
 /* ==========================================================================
@@ -258,6 +267,7 @@ function goTab(tab) {
   if (tab === 'home') renderHome();
   else if (tab === 'study') startStudy();
   else if (tab === 'sentence') renderSentence();
+  else if (tab === 'dictionary') renderDictionary();
   else if (tab === 'list') renderList();
   else if (tab === 'settings') renderSettings();
 }
@@ -293,7 +303,6 @@ function renderHome() {
     const dueN = ds.due;
     const btn = el('button', 'deck-item');
     btn.innerHTML = `
-      <span class="deck-badge">${esc((d.name || d.id).slice(0, 1).toUpperCase())}</span>
       <span class="deck-meta">
         <span class="deck-name">${esc(d.name || d.id)}</span>
         <span class="deck-sub">${ds.total} 語 ・ 習得 ${ds.pct}%</span>
@@ -311,13 +320,15 @@ function startStudy(deckId) {
   const queue = buildStudyQueue(deckId);
   State.session = { queue, index: 0, active: true, deckId };
   State.quizLock = false;
+  State.returnTo = null; // 新規セッション開始で復帰情報をクリア
   currentTab = 'study';
   $$('.tab').forEach((t) => t.classList.toggle('active', t.dataset.tab === 'study'));
   showScreen('study');
   $('#studyDone').hidden = true;
   $('.study-topbar').hidden = false;
-  // Quiz needs at least 4 distinct meanings overall; else fall back to card.
+  // 4択は最低4語、2択は最低2語の異なる意味が必要。足りなければカードに退避。
   if (State.studyMode === 'quiz' && State.entries.length < 4) State.studyMode = 'card';
+  if (State.studyMode === 'quiz2' && State.entries.length < 2) State.studyMode = 'card';
   syncModeToggle();
   if (!queue.length) { finishStudy(true); return; }
   renderStudyStep();
@@ -325,7 +336,7 @@ function startStudy(deckId) {
 
 /* Reflect current mode in the segmented toggle + show/hide panes. */
 function syncModeToggle() {
-  const quiz = State.studyMode === 'quiz';
+  const isQuiz = State.studyMode === 'quiz' || State.studyMode === 'quiz2';
   $$('#studyModeToggle .mode-btn').forEach((b) =>
     b.classList.toggle('active', b.dataset.mode === State.studyMode));
   // Don't reveal study panes while the "session complete" screen is up.
@@ -335,20 +346,21 @@ function syncModeToggle() {
     $('#studyActions').hidden = true;
     return;
   }
-  $('#studyBody').hidden = quiz;
-  $('#studyActions').hidden = quiz;
-  $('#quizBody').hidden = !quiz;
+  $('#studyBody').hidden = isQuiz;      // カード面はクイズ中は隠す
+  $('#studyActions').hidden = isQuiz;   // 自己評価ボタンはカードモードのみ
+  $('#quizBody').hidden = !isQuiz;
 }
 
 /* Render the current queue item in whichever mode is active. */
 function renderStudyStep() {
-  if (State.studyMode === 'quiz') renderQuiz();
+  if (State.studyMode === 'quiz' || State.studyMode === 'quiz2') renderQuiz();
   else renderCard();
 }
 
 function setStudyMode(mode) {
   if (mode === State.studyMode) return;
-  if (mode === 'quiz' && State.entries.length < 4) return; // guard: not enough for choices
+  if (mode === 'quiz' && State.entries.length < 4) return;  // 4択に足りない
+  if (mode === 'quiz2' && State.entries.length < 2) return; // 2択に足りない
   State.studyMode = mode;
   State.quizLock = false;
   syncModeToggle();
@@ -411,14 +423,17 @@ function quizMeaning(m) {
   return (stripped !== m && stripped.length >= 2) ? stripped : m;
 }
 
-function buildQuizChoices(e) {
+/* choiceCount 個の選択肢を作る(正解1 + ダミー n-1)。
+   4択なら 4、2択(スピード)なら 2。 */
+function buildQuizChoices(e, choiceCount = 4) {
+  const need = Math.max(1, choiceCount - 1); // 必要なダミー数
   const correct = quizMeaning(e.meaning_ja || '');
   if (!correct) return null;
   const used = new Set([correct]);
   const distractors = [];
   const collect = (pool) => {
     for (const x of shuffle(pool)) {
-      if (distractors.length >= 3) break;
+      if (distractors.length >= need) break;
       const m = quizMeaning(x.meaning_ja || '');
       if (!m || used.has(m)) continue;
       used.add(m);
@@ -426,9 +441,16 @@ function buildQuizChoices(e) {
     }
   };
   collect(State.entries.filter((x) => x.id !== e.id && x.deck === e.deck)); // same deck first
-  if (distractors.length < 3) collect(State.entries.filter((x) => x.id !== e.id)); // then全体
-  if (distractors.length < 3) return null;
+  if (distractors.length < need) collect(State.entries.filter((x) => x.id !== e.id)); // then全体
+  if (distractors.length < need) return null;
   return shuffle([correct, ...distractors]);
+}
+
+/* エントリの代表例文(examples[0] を優先、無ければ sentences[0])を返す。 */
+function primaryExample(e) {
+  if (Array.isArray(e.examples) && e.examples.length && e.examples[0] && e.examples[0].en) return e.examples[0];
+  if (Array.isArray(e.sentences) && e.sentences.length && e.sentences[0] && e.sentences[0].en) return e.sentences[0];
+  return null;
 }
 
 function renderQuiz() {
@@ -439,8 +461,10 @@ function renderQuiz() {
   $('#studyCount').textContent = `${Math.min(s.index + 1, total)} / ${total}`;
   $('#studyProgress').style.width = `${(s.index / total) * 100}%`;
 
-  const choices = buildQuizChoices(e);
-  if (!choices) { // cannot form 4 distinct choices -> fall back to card mode
+  const speedMode = State.studyMode === 'quiz2';
+  const choiceCount = speedMode ? 2 : 4;
+  const choices = buildQuizChoices(e, choiceCount);
+  if (!choices) { // 十分な選択肢が作れない -> カードモードに退避
     State.studyMode = 'card';
     syncModeToggle();
     renderCard();
@@ -456,10 +480,12 @@ function renderQuiz() {
   $('#quizSpeak').addEventListener('click', () => speak(e.term));
 
   $('#quizFeedback').textContent = '';
+  $('#quizFeedback').className = 'quiz-feedback';
   const wrap = $('#quizChoices');
+  wrap.className = 'quiz-choices' + (speedMode ? ' quiz-choices-speed' : '');
   wrap.innerHTML = '';
   for (const m of choices) {
-    const btn = el('button', 'quiz-choice');
+    const btn = el('button', 'quiz-choice' + (speedMode ? ' quiz-choice-big' : ''));
     btn.textContent = m;
     btn.dataset.value = m;
     btn.addEventListener('click', () => answerQuiz(e, m, choices));
@@ -469,6 +495,9 @@ function renderQuiz() {
   idk.textContent = 'わからん';
   idk.addEventListener('click', () => answerQuiz(e, null, choices));
   wrap.appendChild(idk);
+
+  // 英単語の自動読み上げ(表示した瞬間)。iOSでは初回のみ無音になり得るが仕様上許容。
+  try { speak(e.term); } catch (_) {}
 }
 
 function answerQuiz(e, chosen, choices) {
@@ -485,29 +514,32 @@ function answerQuiz(e, chosen, choices) {
     else if (chosen !== null && v === chosen) btn.classList.add('is-wrong');
   });
   const idkBtn = $('#quizChoices .quiz-idk');
-  if (idkBtn) idkBtn.disabled = true;
+  if (idkBtn) idkBtn.remove(); // 「わからん」は撤去し、フィードバック内の操作に統一
 
-  // 不正解・わからん は正解するまでキューに戻す
+  // 不正解・わからん は正解するまでキューに戻す(習得は正解累計5回で成立)
   if (!isRight) State.session.queue.push(e);
 
+  // ---- 正解/不正解ともに詳細フィードバックを表示。「次へ」まで進まない ----
+  const ex = primaryExample(e);
   const fb = $('#quizFeedback');
-  const idk = $('#quizChoices .quiz-idk');
-  if (isRight) {
-    fb.textContent = '正解!';
-    fb.className = 'quiz-feedback ok';
-    setTimeout(advanceQuiz, 800);
-  } else {
-    fb.textContent = (chosen === null ? 'わからん' : '不正解') + ' ― 答え: ' + correct;
-    fb.className = 'quiz-feedback ng';
-    // わからんボタンを「次へ」に差し替え(確実にタップできる位置)
-    if (idk) {
-      idk.textContent = '次へ →';
-      idk.disabled = false;
-      idk.id = 'quizNextBtn';
-      idk.className = 'btn btn-primary quiz-next';
-    }
-    try { speak(e.term); } catch (_) {}
-  }
+  fb.className = 'quiz-feedback ' + (isRight ? 'ok' : 'ng');
+  fb.innerHTML = `
+    <div class="qf-verdict ${isRight ? 'ok' : 'ng'}">${isRight ? '正解!' : (chosen === null ? 'わからん' : '不正解')}</div>
+    ${isRight ? '' : `<div class="qf-answer"><span class="qf-answer-label">答え</span>${esc(correct)}</div>`}
+    ${ex ? `<div class="qf-example">
+      <div class="qf-ex-en">${esc(ex.en)}</div>
+      ${ex.ja ? `<div class="qf-ex-ja">${esc(ex.ja)}</div>` : ''}
+    </div>` : ''}
+    <div class="qf-actions">
+      <button class="btn btn-ghost qf-more" data-id="${esc(e.id)}">もっと詳しく</button>
+      <button class="btn btn-primary qf-next" id="quizNextBtn">次へ →</button>
+    </div>`;
+
+  // 自動読み上げ: 正解時は例文英文、不正解時は英単語
+  try {
+    if (isRight && ex && ex.en) speak(ex.en);
+    else speak(e.term);
+  } catch (_) {}
 }
 
 function advanceQuiz() {
@@ -517,11 +549,25 @@ function advanceQuiz() {
   renderStudyStep();
 }
 
-// 「次へ」はイベント委任で確実に拾う(iOS Safari対策)
+// 「次へ」「もっと詳しく」「学習に戻る」はイベント委任で確実に拾う(iOS Safari対策)
 document.addEventListener('click', (ev) => {
-  if (ev.target && ev.target.closest && ev.target.closest('#quizNextBtn')) {
+  const t = ev.target;
+  if (!t || !t.closest) return;
+  if (t.closest('#quizNextBtn')) {
     ev.preventDefault();
     advanceQuiz();
+    return;
+  }
+  const more = t.closest('.qf-more');
+  if (more) {
+    ev.preventDefault();
+    openDetailInDictionary(more.dataset.id);
+    return;
+  }
+  if (t.closest('#dictReturnBtn')) {
+    ev.preventDefault();
+    returnToStudy();
+    return;
   }
 });
 
@@ -683,6 +729,7 @@ function populateFilters() {
     o.value = d.id; o.textContent = d.name || d.id;
     dsel.appendChild(o);
   }
+  populateDictDeck();
 }
 
 function renderList() {
@@ -715,6 +762,237 @@ function renderList() {
   }
   $('#listCount').textContent = `${count} 件`;
   if (!count) list.appendChild(el('p', 'muted', '該当するカードがありません'));
+}
+
+/* ==========================================================================
+   DICTIONARY (じっくり学習 / 読み物ページ)
+   全単語を縦スクロールの読み物カードとして連続表示。各カードは展開済み。
+   ========================================================================== */
+const DICT_STATUS_LABEL = { new: '未学習', learning: '学習中', review: '復習', mastered: '習得済み' };
+
+/* デッキ選択ドロップダウンを埋める(list側 populateFilters と同ロジック) */
+function populateDictDeck() {
+  const dsel = $('#dictDeck');
+  if (!dsel) return;
+  const cur = dsel.value;
+  dsel.length = 1; // keep "全デッキ"
+  const decks = (State.meta && State.meta.decks) ? State.meta.decks.slice() : [];
+  const seen = new Set(decks.map((d) => d.id));
+  for (const e of State.entries) if (e.deck && !seen.has(e.deck)) { seen.add(e.deck); decks.push({ id: e.deck, name: e.deck }); }
+  for (const d of decks) {
+    const o = el('option');
+    o.value = d.id; o.textContent = d.name || d.id;
+    dsel.appendChild(o);
+  }
+  // restore selection if still valid
+  if (cur && seen.has(cur)) dsel.value = cur;
+}
+
+/* 1語まるごとの読み物カードのHTMLを組み立てる(タップ不要ですべて見える) */
+function buildDictCard(e) {
+  const st = (State.progress[e.id] && State.progress[e.id].status) || 'new';
+  const stLabel = DICT_STATUS_LABEL[st] || st;
+  const termCls = isSingleWord(e.term) ? 'is-single' : 'is-multi';
+  const parts = [];
+
+  // ---- Head: status badge, term, IPA, speak ----
+  parts.push(`<div class="dict-head">
+    <div class="dict-head-top">
+      <span class="dict-type-badge">${e.type === 'phrase' ? 'PHRASE' : 'WORD'}</span>
+      <span class="dict-status status-${st}">${esc(stLabel)}</span>
+    </div>
+    <div class="dict-term ${termCls}">${esc(e.term)}</div>
+    <div class="dict-metarow">
+      ${e.ipa ? `<span class="dict-ipa">${esc(e.ipa)}</span>` : ''}
+      <button class="dict-speak" data-say="${esc(e.term)}" aria-label="発音">🔊</button>
+    </div>
+    ${(e.pos || e.level) ? `<div class="dict-pos">${esc(e.pos || '')}${(e.pos && e.level) ? ' ・ ' : ''}${esc(e.level || '')}</div>` : ''}
+  </div>`);
+
+  // ---- Meaning / gloss ----
+  parts.push(`<div class="dict-meaning">${esc(e.meaning_ja || '')}</div>`);
+  if (e.gloss_en) parts.push(`<div class="dict-gloss">${esc(e.gloss_en)}</div>`);
+
+  // ---- Etymology / mnemonic ----
+  if (e.etymology) parts.push(dictBlock('語源', `<p>${esc(e.etymology)}</p>`));
+  if (e.mnemonic) parts.push(dictBlock('覚え方', `<p>${esc(e.mnemonic)}</p>`));
+
+  // ---- context_quote: Hi-Vis Yellow band ----
+  if (e.context_quote && (e.context_quote.en || e.context_quote.ja)) {
+    const q = e.context_quote;
+    parts.push(`<div class="quote-block">
+      <div class="quote-label">授業での使用例</div>
+      ${q.en ? `<div class="quote-en">“${esc(q.en)}”</div>` : ''}
+      ${q.ja ? `<div class="quote-ja">${esc(q.ja)}</div>` : ''}
+      ${q.source ? `<div class="quote-src">— ${esc(q.source)}</div>` : ''}
+    </div>`);
+  }
+
+  // ---- Examples ----
+  if (Array.isArray(e.examples) && e.examples.length) {
+    const items = e.examples.map((ex) => `
+      <div class="ex-item">
+        <div class="ex-en">${esc(ex.en)}</div>
+        ${ex.ja ? `<div class="ex-ja">${esc(ex.ja)}</div>` : ''}
+        ${ex.scene ? `<div class="ex-scene">${esc(ex.scene)}</div>` : ''}
+      </div>`).join('');
+    parts.push(dictBlock('例文', items));
+  }
+
+  // ---- Sentences (暗唱文) with inline speak ----
+  if (Array.isArray(e.sentences) && e.sentences.length) {
+    const items = e.sentences.map((sen) => `
+      <div class="ex-item">
+        <div class="ex-en">${esc(sen.en)} <button class="speak-inline dict-say" data-say="${esc(sen.en)}" aria-label="発音">🔊</button></div>
+        ${sen.ja ? `<div class="ex-ja">${esc(sen.ja)}</div>` : ''}
+        ${sen.scene ? `<div class="ex-scene">${esc(sen.scene)}</div>` : ''}
+      </div>`).join('');
+    parts.push(dictBlock('暗唱文', items));
+  }
+
+  // ---- Related lexis (chips) ----
+  const lexChips = (label, items, sep) => {
+    if (!arr(items)) return '';
+    return `<div class="dict-lex-row"><span class="dict-lex-label">${esc(label)}</span><span class="tag-row">${items.map((x) => `<span class="tag-chip">${esc(x)}</span>`).join('')}</span></div>`;
+  };
+  let lex = '';
+  lex += lexChips('類義語', e.synonyms);
+  lex += lexChips('言い換え', e.paraphrases);
+  lex += lexChips('反意語', e.antonyms);
+  lex += lexChips('コロケーション', e.collocations);
+  if (lex) parts.push(`<div class="fc-block">${lex}</div>`);
+
+  // ---- Tags ----
+  const tags = [];
+  if (e.register) tags.push(e.register);
+  if (arr(e.tags)) tags.push(...e.tags);
+  if (tags.length) parts.push(`<div class="fc-block"><div class="tag-row">${tags.map((t) => `<span class="tag-chip">${esc(t)}</span>`).join('')}</div></div>`);
+
+  // ---- "覚えた" action (applyGrade good 相当) ----
+  parts.push(`<div class="dict-actions">
+    <button class="dict-learned-btn" data-id="${esc(e.id)}">✓ 覚えた</button>
+  </div>`);
+
+  return parts.join('');
+}
+const dictBlock = (label, inner) => `<div class="fc-block"><div class="fc-block-label">${esc(label)}</div>${inner}</div>`;
+
+function renderDictionary(focusId) {
+  const list = $('#dictList');
+  if (!list) return;
+  // 復帰バーは returnTo がある時だけ表示
+  const returnBar = $('#dictReturnBar');
+  if (returnBar) returnBar.hidden = !State.returnTo;
+  const deck = $('#dictDeck').value;
+  const q = $('#dictSearch').value.trim().toLowerCase();
+  list.innerHTML = '';
+  let count = 0;
+  let focusCard = null;
+  for (const e of State.entries) {
+    if (deck && e.deck !== deck) continue;
+    if (q) {
+      const hay = `${e.term} ${e.meaning_ja || ''}`.toLowerCase();
+      if (!hay.includes(q)) continue;
+    }
+    count++;
+    const card = el('article', 'dict-card card');
+    card.dataset.id = e.id;
+    card.innerHTML = buildDictCard(e);
+    // fit term font (single words never wrap)
+    fitTermFont($('.dict-term', card));
+    list.appendChild(card);
+    if (focusId && e.id === focusId) focusCard = card;
+  }
+  $('#dictCount').textContent = `${count} 語`;
+  if (!count) list.appendChild(el('p', 'muted', '該当する単語がありません'));
+  // 対象カードを先頭表示(可能ならスクロール)
+  if (focusCard) {
+    focusCard.classList.add('dict-card-focus');
+    requestAnimationFrame(() => {
+      try { focusCard.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (_) { focusCard.scrollIntoView(); }
+    });
+  }
+}
+
+/* クイズの「もっと詳しく」→ 辞書でその単語だけを表示。
+   戻り先(returnTo)を記録してから辞書タブへ遷移する。 */
+function openDetailInDictionary(id) {
+  const e = State.byId.get(id);
+  if (!e) return;
+  // 現在の学習セッションの続き(同じキュー・同じindex・同じモード)を保存
+  State.returnTo = {
+    session: State.session,
+    studyMode: State.studyMode,
+    quizLock: State.quizLock,
+  };
+  currentTab = 'dictionary';
+  $$('.tab').forEach((t) => t.classList.toggle('active', t.dataset.tab === 'dictionary'));
+  showScreen('dictionary');
+  $('#main').scrollTop = 0;
+  // その単語のデッキに絞り、検索で当該語のみに(先頭表示 & スクロール)
+  const dsel = $('#dictDeck');
+  if (dsel) dsel.value = e.deck || '';
+  const q = $('#dictSearch');
+  if (q) q.value = e.term;
+  renderDictionary(id);
+}
+
+/* 辞書ページの「学習に戻る」→ 記録した学習セッションの続きに復帰。 */
+function returnToStudy() {
+  const rt = State.returnTo;
+  State.returnTo = null;
+  const bar = $('#dictReturnBar');
+  if (bar) bar.hidden = true;
+  // 検索フィルタを解除しておく(次に辞書を普通に開いた時のため)
+  const q = $('#dictSearch');
+  if (q) q.value = '';
+  if (rt && rt.session) {
+    State.session = rt.session;
+    State.studyMode = rt.studyMode || State.studyMode;
+    State.quizLock = false;
+    currentTab = 'study';
+    $$('.tab').forEach((t) => t.classList.toggle('active', t.dataset.tab === 'study'));
+    showScreen('study');
+    $('#main').scrollTop = 0;
+    $('#studyDone').hidden = true;
+    $('.study-topbar').hidden = false;
+    syncModeToggle();
+    if (State.session.active && State.session.index < State.session.queue.length) {
+      renderStudyStep();
+    } else {
+      finishStudy(false);
+    }
+  } else {
+    goTab('study');
+  }
+}
+
+/* Delegated events for dictionary: speak buttons + 覚えた button */
+function wireDictionary() {
+  const list = $('#dictList');
+  if (!list) return;
+  list.addEventListener('click', (ev) => {
+    const t = ev.target;
+    const say = t && t.closest && t.closest('[data-say]');
+    if (say) { ev.stopPropagation(); speak(say.dataset.say || ''); return; }
+    const learned = t && t.closest && t.closest('.dict-learned-btn');
+    if (learned) {
+      const id = learned.dataset.id;
+      applyGrade(id, 'good');
+      // update the card's status badge in place
+      const card = learned.closest('.dict-card');
+      if (card) {
+        const st = (State.progress[id] && State.progress[id].status) || 'new';
+        const badge = $('.dict-status', card);
+        if (badge) { badge.textContent = DICT_STATUS_LABEL[st] || st; badge.className = 'dict-status status-' + st; }
+        learned.classList.add('is-done');
+        learned.textContent = '✓ 記録しました';
+      }
+    }
+  });
+  $('#dictDeck').addEventListener('change', renderDictionary);
+  let dictT;
+  $('#dictSearch').addEventListener('input', () => { clearTimeout(dictT); dictT = setTimeout(renderDictionary, 120); });
 }
 
 /* ==========================================================================
@@ -826,6 +1104,9 @@ function wire() {
   $('#filterDeck').addEventListener('change', renderList);
   $('#filterType').addEventListener('change', renderList);
   $('#filterStatus').addEventListener('change', renderList);
+
+  // dictionary
+  wireDictionary();
 
   // sheet
   $('#sheetBackdrop').addEventListener('click', (e) => { if (e.target === $('#sheetBackdrop')) closeSheet(); });

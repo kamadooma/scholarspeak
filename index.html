@@ -78,8 +78,9 @@
       <!-- STUDY (flashcards) -->
       <section class="screen" id="screen-study" data-screen="study" hidden>
         <div class="study-mode-toggle" id="studyModeToggle">
-          <button class="mode-btn active" data-mode="card">カード</button>
-          <button class="mode-btn" data-mode="quiz">4択</button>
+          <button class="mode-btn active" data-mode="quiz">4択</button>
+          <button class="mode-btn" data-mode="quiz2">2択</button>
+          <button class="mode-btn" data-mode="card">カード</button>
         </div>
         <div class="study-topbar">
           <div class="progress-bar"><div class="progress-bar-fill" id="studyProgress"></div></div>
@@ -147,6 +148,25 @@
             <button class="btn btn-ghost" id="sentPrev">← 前へ</button>
             <button class="btn btn-ghost" id="sentNext">次へ →</button>
           </div>
+        </div>
+      </section>
+
+      <!-- DICTIONARY (じっくり学習 / 読み物) -->
+      <section class="screen" id="screen-dictionary" data-screen="dictionary" hidden>
+        <div class="screen-pad">
+          <div class="dict-return-bar" id="dictReturnBar" hidden>
+            <button class="btn btn-primary btn-block" id="dictReturnBtn">← 学習に戻る</button>
+          </div>
+          <h1 class="page-title">辞書</h1>
+          <p class="page-sub">じっくり読んで覚える読み物ページ</p>
+          <div class="dict-controls">
+            <select class="chip-select dict-deck" id="dictDeck"><option value="">全デッキ</option></select>
+            <div class="search-wrap dict-search-wrap">
+              <input type="search" id="dictSearch" class="search-input" placeholder="単語・意味を検索" autocomplete="off" />
+            </div>
+          </div>
+          <p class="list-count" id="dictCount">0 語</p>
+          <div class="dict-list" id="dictList"></div>
         </div>
       </section>
 
@@ -240,6 +260,9 @@
       </button>
       <button class="tab" data-tab="sentence" aria-label="センテンス">
         <span class="tab-icon">“”</span><span class="tab-lbl">センテンス</span>
+      </button>
+      <button class="tab" data-tab="dictionary" aria-label="辞書">
+        <span class="tab-icon">📖</span><span class="tab-lbl">辞書</span>
       </button>
       <button class="tab" data-tab="list" aria-label="一覧">
         <span class="tab-icon">☰</span><span class="tab-lbl">一覧</span>
