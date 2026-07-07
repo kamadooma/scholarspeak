@@ -491,15 +491,21 @@ function answerQuiz(e, chosen, choices) {
   if (!isRight) State.session.queue.push(e);
 
   const fb = $('#quizFeedback');
+  const idk = $('#quizChoices .quiz-idk');
   if (isRight) {
-    fb.innerHTML = '<div class="quiz-verdict ok">正解!</div>';
+    fb.textContent = '正解!';
+    fb.className = 'quiz-feedback ok';
     setTimeout(advanceQuiz, 800);
   } else {
-    fb.innerHTML = `
-      <div class="quiz-verdict ng">${chosen === null ? 'わからん' : '不正解'}</div>
-      <div class="quiz-answer"><span class="quiz-answer-label">答え</span>${esc(correct)}
-        <span class="quiz-answer-term">${esc(e.term)}${e.ipa ? ' ' + esc(e.ipa) : ''}</span></div>
-      <button type="button" class="btn btn-primary" id="quizNextBtn">次へ</button>`;
+    fb.textContent = (chosen === null ? 'わからん' : '不正解') + ' ― 答え: ' + correct;
+    fb.className = 'quiz-feedback ng';
+    // わからんボタンを「次へ」に差し替え(確実にタップできる位置)
+    if (idk) {
+      idk.textContent = '次へ →';
+      idk.disabled = false;
+      idk.id = 'quizNextBtn';
+      idk.className = 'btn btn-primary quiz-next';
+    }
     try { speak(e.term); } catch (_) {}
   }
 }

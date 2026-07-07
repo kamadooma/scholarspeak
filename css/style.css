@@ -732,3 +732,8 @@ input[type="range"]::-webkit-slider-thumb {
 .hero-title { font-size: clamp(28px, 10vw, 44px); line-height: 1.12; white-space: nowrap; }
 .page-title { font-size: clamp(26px, 8.5vw, 40px); line-height: 1.12; }
 .study-done h2, .empty-state h2 { font-size: 30px; line-height: 1.15; }
+
+/* quiz feedback simplified */
+.quiz-feedback.ok { color: var(--matcha-cream); }
+.quiz-feedback.ng { color: var(--bubblegum-pink); font-size: 16px; text-transform: none; line-height: 1.5; }
+.quiz-next { display: block; width: 100%; margin-top: 12px; font-size: 17px; padding: 14px; }
