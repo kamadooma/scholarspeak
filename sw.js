@@ -4,7 +4,7 @@
    Bump CACHE_VERSION to invalidate old caches. */
 'use strict';
 
-const CACHE_VERSION = 'lexilab-v1.6.1';
+const CACHE_VERSION = 'lexilab-v1.7.0';
 const SHELL_CACHE = CACHE_VERSION + '-shell';
 const DATA_CACHE = CACHE_VERSION + '-data';
 

@@ -237,10 +237,10 @@ function pickVoice() {
   const ranked = rankedVoices();
   return ranked[0] || v.find((x) => isEnUS(x)) || v.find((x) => isEn(x)) || v[0];
 }
-function speak(text) {
+function speak(text, opts) {
   if (!window.speechSynthesis || !text) return;
   try {
-    speechSynthesis.cancel(); // avoid queue clog / stuck utterances
+    if (!(opts && opts.noCancel)) speechSynthesis.cancel(); // avoid queue clog / stuck utterances
     const u = new SpeechSynthesisUtterance(text);
     const voice = pickVoice();
     if (voice) u.voice = voice;
@@ -529,16 +529,17 @@ function answerQuiz(e, chosen, choices) {
     ${ex ? `<div class="qf-example">
       <div class="qf-ex-en">${esc(ex.en)}</div>
       ${ex.ja ? `<div class="qf-ex-ja">${esc(ex.ja)}</div>` : ''}
+      <button class="btn btn-ghost qf-replay" data-say="${esc(ex.en)}">🔊 例文をもう一度</button>
     </div>` : ''}
     <div class="qf-actions">
       <button class="btn btn-ghost qf-more" data-id="${esc(e.id)}">もっと詳しく</button>
       <button class="btn btn-primary qf-next" id="quizNextBtn">次へ →</button>
     </div>`;
 
-  // 自動読み上げ: 正解時は例文英文、不正解時は英単語
+  // 自動読み上げ: 単語 → 例文英文 の順で必ず読む(耳から覚える)
   try {
-    if (isRight && ex && ex.en) speak(ex.en);
-    else speak(e.term);
+    speak(e.term);
+    if (ex && ex.en) setTimeout(() => speak(ex.en, { noCancel: true }), 900);
   } catch (_) {}
 }
 
@@ -562,6 +563,12 @@ document.addEventListener('click', (ev) => {
   if (more) {
     ev.preventDefault();
     openDetailInDictionary(more.dataset.id);
+    return;
+  }
+  const replay = t.closest('.qf-replay');
+  if (replay) {
+    ev.preventDefault();
+    speak(replay.dataset.say || '');
     return;
   }
   if (t.closest('#dictReturnBtn')) {
@@ -700,8 +707,7 @@ function showSentence() {
   $('#sentScene').textContent = it.scene;
   $('#sentTerm').textContent = `対象語: ${it.term}`;
   $('#sentJa').textContent = it.ja || '(和訳なし)';
-  const blank = $('#blankToggle').checked;
-  $('#sentEn').innerHTML = blank ? blankOut(it.en, it.term) : esc(it.en);
+  $('#sentEn').innerHTML = esc(it.en);
   // reset reveal
   $('#sentEnWrap').hidden = true;
   $('#sentControls').hidden = true;
@@ -1086,7 +1092,6 @@ function wire() {
     const it = State.sent.items[State.sent.index];
     if (it) speak(it.en);
   });
-  $('#blankToggle').addEventListener('change', showSentence);
   $('#sentPrev').addEventListener('click', () => {
     if (!State.sent.items.length) return;
     State.sent.index = (State.sent.index - 1 + State.sent.items.length) % State.sent.items.length;
