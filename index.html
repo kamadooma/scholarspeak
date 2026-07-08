@@ -20,10 +20,9 @@
     <!-- App bar -->
     <header class="appbar" id="appbar">
       <div class="appbar-inner">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true">S</span>
+        <button class="brand" id="brandHome" type="button" aria-label="ホームへ">
           <span class="brand-name">SCHOLAR SPEAK</span>
-        </div>
+        </button>
         <div class="appbar-actions">
           <button class="icon-btn" id="reloadBtn" title="データ再読込" aria-label="データ再読込">⟳</button>
         </div>
@@ -96,8 +95,8 @@
         </div>
         <div class="quiz-body" id="quizBody" hidden>
           <div class="quiz-prompt" id="quizPrompt"></div>
-          <div class="quiz-feedback" id="quizFeedback"></div>
           <div class="quiz-choices" id="quizChoices"></div>
+          <div class="quiz-feedback" id="quizFeedback"></div>
         </div>
         <div class="study-actions" id="studyActions">
           <button class="grade-btn grade-again" data-grade="again">
@@ -137,7 +136,7 @@
             </div>
             <button class="reveal-hint" id="sentReveal">タップで英文を表示</button>
             <div class="sent-controls" id="sentControls" hidden>
-              <button class="btn btn-tts" id="sentSpeak">🔊 シャドーイング</button>
+              <button class="btn btn-tts" id="sentSpeak"><svg class="ico-spk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h3.5L13 19V5L7.5 9H4Z"/><path d="M16.5 8.8a4.5 4.5 0 0 1 0 6.4M19 6.2a8 8 0 0 1 0 11.6"/></svg> シャドーイング</button>
             </div>
           </div>
           <div class="sentence-nav">
@@ -208,7 +207,7 @@
               <span class="field-label">速度 <em id="rateVal">0.9</em></span>
               <input type="range" id="rateSlider" min="0.6" max="1.1" step="0.05" value="0.9" />
             </label>
-            <button class="btn btn-ghost" id="testVoice">🔊 テスト再生</button>
+            <button class="btn btn-ghost" id="testVoice"><svg class="ico-spk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h3.5L13 19V5L7.5 9H4Z"/><path d="M16.5 8.8a4.5 4.5 0 0 1 0 6.4M19 6.2a8 8 0 0 1 0 11.6"/></svg> テスト再生</button>
             <p class="settings-note">より自然な声にするには iOS設定→アクセシビリティ→読み上げコンテンツ→声→英語 で高品質声を追加ダウンロードし、ここで選択。</p>
           </div>
 
@@ -248,23 +247,23 @@
 
     <!-- Bottom tab nav -->
     <nav class="tabbar" id="tabbar">
-      <button class="tab" data-tab="home" aria-label="ホーム">
-        <span class="tab-icon">⌂</span><span class="tab-lbl">ホーム</span>
+      <button class="tab" data-tab="home" aria-label="Home">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></span><span class="tab-lbl">Home</span>
       </button>
-      <button class="tab" data-tab="study" aria-label="学習">
-        <span class="tab-icon">✦</span><span class="tab-lbl">学習</span>
+      <button class="tab" data-tab="study" aria-label="Study">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5-10-5Z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg></span><span class="tab-lbl">Study</span>
       </button>
-      <button class="tab" data-tab="sentence" aria-label="センテンス">
-        <span class="tab-icon">“”</span><span class="tab-lbl">センテンス</span>
+      <button class="tab" data-tab="sentence" aria-label="Sentences">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2Z"/><path d="M8 9h9M8 13h6"/></svg></span><span class="tab-lbl">Sentences</span>
       </button>
-      <button class="tab" data-tab="dictionary" aria-label="辞書">
-        <span class="tab-icon">📖</span><span class="tab-lbl">辞書</span>
+      <button class="tab" data-tab="dictionary" aria-label="Dictionary">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.2-4-2-6.5-2H3v14h3.5c2.2 0 4.2.7 5.5 2 1.3-1.3 3.3-2 5.5-2H21V4h-2.5C16 4 13.5 4.8 12 6Z"/><path d="M12 6v14"/></svg></span><span class="tab-lbl">Dictionary</span>
       </button>
-      <button class="tab" data-tab="list" aria-label="一覧">
-        <span class="tab-icon">☰</span><span class="tab-lbl">一覧</span>
+      <button class="tab" data-tab="list" aria-label="Browse">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></span><span class="tab-lbl">Browse</span>
       </button>
-      <button class="tab" data-tab="settings" aria-label="設定">
-        <span class="tab-icon">⚙</span><span class="tab-lbl">設定</span>
+      <button class="tab" data-tab="settings" aria-label="Settings">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h7M15 18h5"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="13" cy="18" r="2"/></svg></span><span class="tab-lbl">Settings</span>
       </button>
     </nav>
   </div>

@@ -91,5 +91,23 @@ lexilab/
   icons/icon.svg  icon-180.png  icon-192.png  icon-512.png
   README.md
   docs/WORKFLOW.md  (Coworkでのカード追加手順+抽出プロンプト仕様)
+  SKILL.md          (開発フロー+レイアウト不変条件。UI/データを触る前に読む)
   SPEC.md
 ```
+
+## レイアウト & レスポンシブ不変条件（崩さないための必須ルール）
+
+過去に実機（特にスマホ）で起きた UI 崩れの恒久対策。**UI変更のたびにブラウザで狭幅(〜340px)・広幅を目視確認**すること（Webデザインの当然の前提）。
+
+1. **下部タブバーは通常フロー**（`#app` の flex 最下段）に置く。`position:absolute` で被せない。
+   被せると上のスクロール領域にコンテンツが潜り込み「ボタン/次へが押せない」崩れになる。
+2. **flex 子をスクロールさせるなら `min-height:0`**（`.main`）。無いと flex子がコンテンツ高まで膨らみ `overflow-y:auto` が効かず「スマホで下にスクロールできない」崩れになる。
+3. **長い文字列（英語のデッキ名・意味）は省略か折り返し。**
+   1行省略は `display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis`。名前とボタンの横並びは 名前 `flex:1; min-width:0` / ボタン `flex-shrink:0`。
+4. **同一情報を二度描かない。** 詳細シート(`openSheet`)は `buildCardBack()` の見出し語に任せ、独自見出しを重ねない（見出し語2回表示の崩れ）。
+5. **チップ/タグは `dedupTags()` で重複除去**（`register` と `tags` の "academic" 重複）。
+6. **クイズ描画順は prompt → choices → feedback**。回答後は「選択肢→フィードバック(答え/例文/次へ)」の順で読めること。
+7. **横はみ出し防止**: `body { max-width:100% }`、`img, video { max-width:100% }`、全要素 `box-sizing:border-box`。
+8. **本番反映は `sw.js` の `CACHE_VERSION` を上げる**（cache-first のため、上げないと既存ユーザーに届かない）。
+
+詳しい開発フローは `SKILL.md` を参照。

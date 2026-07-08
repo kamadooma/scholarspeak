@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": 1,
-    "updated": "2026-07-06",
+    "updated": "2026-07-08",
     "decks": [
       {
         "id": "seed",
-        "name": "スターターデッキ",
+        "name": "Starter Deck",
         "source": "サンプル",
         "date": "2026-07-06"
       },
@@ -23,19 +23,19 @@
       },
       {
         "id": "lec-rjdm",
-        "name": "講義: Reasoning & Decision-Making",
+        "name": "Lecture: Reasoning & Decision-Making",
         "source": "講義",
         "date": "2026-07-06"
       },
       {
         "id": "lec-social-cognition",
-        "name": "講義: Social Cognition & Game Theory",
+        "name": "Lecture: Social Cognition & Game Theory",
         "source": "講義",
         "date": "2026-07-06"
       },
       {
         "id": "lec-agents-econ",
-        "name": "講義: Agents for Economics",
+        "name": "Lecture: Agents for Economics",
         "source": "講義",
         "date": "2026-07-06"
       },
@@ -47,93 +47,99 @@
       },
       {
         "id": "academic-speech",
-        "name": "Academic Speech: 学者の話し方",
+        "name": "Academic Speech",
         "source": "頻出表現",
         "date": "2026-07-06"
       },
       {
         "id": "readings-phase1",
-        "name": "論文: 環境知覚と身体性 (Phase 1)",
+        "name": "Reading: Environmental Perception & Embodiment (Phase 1)",
         "source": "リーディング",
         "date": "2026-07-06"
       },
       {
         "id": "readings-plurality",
-        "name": "論文: Plurality — A Widening Gulf",
+        "name": "Reading: Plurality — A Widening Gulf",
         "source": "リーディング",
         "date": "2026-07-06"
       },
       {
         "id": "readings-phase2",
-        "name": "論文: 確率とベイズ (Phase 2)",
+        "name": "Reading: Probability & Bayes (Phase 2)",
         "source": "リーディング",
         "date": "2026-07-06"
       },
       {
         "id": "readings-phase34",
-        "name": "論文: 協力と創発 (Phase 3–4)",
+        "name": "Reading: Cooperation & Emergence (Phase 3–4)",
         "source": "リーディング",
         "date": "2026-07-06"
       },
       {
         "id": "readings-agents-econ",
-        "name": "論文: エージェントベース経済学",
+        "name": "Reading: Agent-Based Economics",
         "source": "リーディング",
         "date": "2026-07-06"
       },
       {
         "id": "readings-worthy",
-        "name": "論文: 価値ある問いの見つけ方",
+        "name": "Reading: Finding Worthy Questions",
         "source": "リーディング",
         "date": "2026-07-06"
       },
       {
         "id": "course-concepts",
-        "name": "授業の概念用語",
+        "name": "Course Concepts",
         "source": "自分メモ",
         "date": "2026-07-06"
       },
       {
         "id": "abm-extra",
-        "name": "エージェントモデル論文の語彙",
+        "name": "Agent-Based Model Vocabulary",
         "source": "論文",
         "date": "2026-07-06"
       },
       {
         "id": "bk-trouble",
-        "name": "書籍: 共生と環境人文学",
+        "name": "Book: Symbiosis & Environmental Humanities",
         "source": "書籍",
         "date": "2026-07-06"
       },
       {
         "id": "bk-technic-magic",
-        "name": "書籍: 形而上学と存在論",
+        "name": "Book: Metaphysics & Ontology",
         "source": "書籍",
         "date": "2026-07-06"
       },
       {
         "id": "deck-speculative",
-        "name": "思弁デザインの語彙",
+        "name": "Speculative Design Vocabulary",
         "source": "課題",
         "date": "2026-07-07"
       },
       {
         "id": "bk-bioacoustics",
-        "name": "論文: 生物音響と深層学習",
+        "name": "Paper: Bioacoustics & Deep Learning",
         "source": "論文",
         "date": "2026-07-07"
       },
       {
         "id": "bk-esp",
-        "name": "報告書: 種間コミュニケーション",
+        "name": "Report: Interspecies Communication",
         "source": "報告書",
         "date": "2026-07-06"
       },
       {
         "id": "bk-church",
-        "name": "論文: 宗教と文化",
+        "name": "Paper: Religion & Culture",
         "source": "論文",
         "date": "2026-07-06"
+      },
+      {
+        "id": "cogsci-vocab",
+        "name": "Cognitive Science",
+        "source": "Course Vocabulary",
+        "date": "2026-07-08"
       }
     ]
   },
@@ -24200,6 +24206,5213 @@
         "humanities"
       ],
       "source": "bk-church"
+    },
+    {
+      "id": "cs-representation",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "representation",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "表象／表現",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "頭の中の「世界のモデル」",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The agent's internal representation of the fishing grounds guides where it searches.",
+          "ja": "エージェントの漁場の内部表象が、どこを探すかを導く。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The agent's internal representation of the fishing grounds guides where it searches.",
+          "ja": "エージェントの漁場の内部表象が、どこを探すかを導く。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "zero-crossing",
+        "sensor-motor coupling",
+        "internal model"
+      ]
+    },
+    {
+      "id": "cs-computational-level",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "computational level",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "計算理論レベル",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "Marrの「何を・なぜ解くか」",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "At the computational level, we ask what problem vision is actually solving.",
+          "ja": "計算理論レベルでは、視覚が実際に何の問題を解いているかを問う。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "At the computational level, we ask what problem vision is actually solving.",
+          "ja": "計算理論レベルでは、視覚が実際に何の問題を解いているかを問う。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "primal sketch",
+        "zero-crossing",
+        "cue"
+      ]
+    },
+    {
+      "id": "cs-algorithmic-level",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "algorithmic level",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "表現とアルゴリズムのレベル",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "「どう解くか」",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The algorithmic level describes the steps used to solve that problem.",
+          "ja": "アルゴリズムレベルは、その問題を解く手順を記述する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The algorithmic level describes the steps used to solve that problem.",
+          "ja": "アルゴリズムレベルは、その問題を解く手順を記述する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "perception mark",
+        "receptor",
+        "noisy"
+      ]
+    },
+    {
+      "id": "cs-implementational-level",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "implementational level",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "実装レベル",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "「物理的にどこで」",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "At the implementational level, we ask how neurons physically carry it out.",
+          "ja": "実装レベルでは、ニューロンが物理的にどう実行するかを問う。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "At the implementational level, we ask how neurons physically carry it out.",
+          "ja": "実装レベルでは、ニューロンが物理的にどう実行するかを問う。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "receptor",
+        "vehicle",
+        "dynamic"
+      ]
+    },
+    {
+      "id": "cs-primal-sketch",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "primal sketch",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "原始スケッチ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "Marrの初期視覚表現",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Marr's primal sketch captures edges before any object is recognized.",
+          "ja": "Marrの原始スケッチは、物体認識の前に輪郭を捉える。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Marr's primal sketch captures edges before any object is recognized.",
+          "ja": "Marrの原始スケッチは、物体認識の前に輪郭を捉える。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "Innenwelt",
+        "vehicle",
+        "computational level"
+      ]
+    },
+    {
+      "id": "cs-edge-detection",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "edge detection",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "輪郭検出",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "明暗の変化を見つける",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Edge detection lets the system find where brightness changes sharply.",
+          "ja": "輪郭検出で、輝度が急に変わる場所を見つけられる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Edge detection lets the system find where brightness changes sharply.",
+          "ja": "輪郭検出で、輝度が急に変わる場所を見つけられる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "representation",
+        "receptor",
+        "salience"
+      ]
+    },
+    {
+      "id": "cs-zero-crossing",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "zero-crossing",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "ゼロ交差",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "輝度変化が急な点",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A zero-crossing marks the point where the intensity gradient flips sign.",
+          "ja": "ゼロ交差は、輝度勾配の符号が反転する点を示す。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A zero-crossing marks the point where the intensity gradient flips sign.",
+          "ja": "ゼロ交差は、輝度勾配の符号が反転する点を示す。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "Innenwelt",
+        "vehicle",
+        "salience"
+      ]
+    },
+    {
+      "id": "cs-innenwelt",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "Innenwelt",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "内世界",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "主体の内側の世界",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The tick's Innenwelt contains only a few signals, yet that is enough.",
+          "ja": "ダニの内世界にはわずかな信号しかないが、それで十分だ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The tick's Innenwelt contains only a few signals, yet that is enough.",
+          "ja": "ダニの内世界にはわずかな信号しかないが、それで十分だ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "algorithmic level",
+        "salience",
+        "effector"
+      ]
+    },
+    {
+      "id": "cs-functional-cycle",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "functional cycle",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "機能環",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "Uexküll:知覚→作用のループ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Uexküll's functional cycle links what an animal perceives to how it acts.",
+          "ja": "Uexküllの機能環は、知覚と行動を結びつける。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Uexküll's functional cycle links what an animal perceives to how it acts.",
+          "ja": "Uexküllの機能環は、知覚と行動を結びつける。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "feature carrier",
+        "edge detection",
+        "stimulus"
+      ]
+    },
+    {
+      "id": "cs-receptor",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "receptor",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "受容器",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "刺激を受け取る",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The tick's receptor responds to the butyric acid released by mammals.",
+          "ja": "ダニの受容器は、哺乳類が放つ酪酸に反応する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The tick's receptor responds to the butyric acid released by mammals.",
+          "ja": "ダニの受容器は、哺乳類が放つ酪酸に反応する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "feature carrier",
+        "zero-crossing",
+        "edge detection"
+      ]
+    },
+    {
+      "id": "cs-effector",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "effector",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "効果器",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "行動を起こす",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Once triggered, the effector makes the tick drop onto its host.",
+          "ja": "引き金が引かれると、効果器がダニを宿主に落下させる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Once triggered, the effector makes the tick drop onto its host.",
+          "ja": "引き金が引かれると、効果器がダニを宿主に落下させる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "feature carrier",
+        "computational level",
+        "sensor-motor coupling"
+      ]
+    },
+    {
+      "id": "cs-perception-mark",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "perception mark",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "知覚標識（Merkmal）",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "対象が持つ「知覚の目印」",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A perception mark is the sign an object carries that the animal can sense.",
+          "ja": "知覚標識とは、動物が感じ取れる対象の目印。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A perception mark is the sign an object carries that the animal can sense.",
+          "ja": "知覚標識とは、動物が感じ取れる対象の目印。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "receptor",
+        "stimulus",
+        "salience"
+      ]
+    },
+    {
+      "id": "cs-effect-mark",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "effect mark",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "作用標識（Wirkzeichen）",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "行動を引き起こす目印",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The effect mark is what turns perception into a concrete action.",
+          "ja": "作用標識は、知覚を具体的な行動へ変えるもの。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The effect mark is what turns perception into a concrete action.",
+          "ja": "作用標識は、知覚を具体的な行動へ変えるもの。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "salience",
+        "internal model",
+        "representation"
+      ]
+    },
+    {
+      "id": "cs-feature-carrier",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "feature carrier",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "特徴の担い手",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "目印を運ぶ対象の性質",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "For the tick, warmth is the feature carrier meaning \"host is here.\"",
+          "ja": "ダニにとって温かさは「宿主がいる」を意味する特徴の担い手。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "For the tick, warmth is the feature carrier meaning \"host is here.\"",
+          "ja": "ダニにとって温かさは「宿主がいる」を意味する特徴の担い手。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "Innenwelt",
+        "zero-crossing",
+        "salience"
+      ]
+    },
+    {
+      "id": "cs-stimulus",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "stimulus",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "刺激",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "環境からの入力（複数形 stimuli）",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The agent only reacts to the stimuli its sensors are tuned to.",
+          "ja": "エージェントは、センサーが同調した刺激にしか反応しない。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The agent only reacts to the stimuli its sensors are tuned to.",
+          "ja": "エージェントは、センサーが同調した刺激にしか反応しない。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "implementational level",
+        "cue",
+        "algorithmic level"
+      ]
+    },
+    {
+      "id": "cs-cue",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "cue",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "手がかり",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "判断の材料になる信号",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Temperature acts as a cue guiding the agent toward richer zones.",
+          "ja": "水温は、より豊かなゾーンへ導く手がかりとして働く。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Temperature acts as a cue guiding the agent toward richer zones.",
+          "ja": "水温は、より豊かなゾーンへ導く手がかりとして働く。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "computational level",
+        "algorithmic level",
+        "synthetic psychology"
+      ]
+    },
+    {
+      "id": "cs-scaffolding",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "scaffolding",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "足場かけ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "環境が思考を支える",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "External tools provide scaffolding that lightens the brain's workload.",
+          "ja": "外部の道具は、脳の負荷を軽くする足場を提供する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "External tools provide scaffolding that lightens the brain's workload.",
+          "ja": "外部の道具は、脳の負荷を軽くする足場を提供する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "sensor-motor coupling",
+        "cue",
+        "noisy"
+      ]
+    },
+    {
+      "id": "cs-synthetic-psychology",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "synthetic psychology",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "合成心理学",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "Braitenberg:作って理解する",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Braitenberg's synthetic psychology builds simple machines to understand behavior.",
+          "ja": "合成心理学は、行動を理解するため単純な機械を作る。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Braitenberg's synthetic psychology builds simple machines to understand behavior.",
+          "ja": "合成心理学は、行動を理解するため単純な機械を作る。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "functional cycle",
+        "representation",
+        "receptor"
+      ]
+    },
+    {
+      "id": "cs-vehicle",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "vehicle",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "ヴィークル",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "Braitenbergの思考実験ロボット",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A Braitenberg vehicle with crossed wires suddenly looks aggressive.",
+          "ja": "配線を交差させたヴィークルは、突然攻撃的に見える。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A Braitenberg vehicle with crossed wires suddenly looks aggressive.",
+          "ja": "配線を交差させたヴィークルは、突然攻撃的に見える。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "primal sketch",
+        "synthetic psychology",
+        "effector"
+      ]
+    },
+    {
+      "id": "cs-sensor-motor-coupling",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "sensor-motor coupling",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "感覚運動結合",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "センサーとモーターの直結",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Complex behavior can emerge from simple sensor-motor coupling alone.",
+          "ja": "複雑な行動は、単純な感覚運動結合だけからでも生じうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Complex behavior can emerge from simple sensor-motor coupling alone.",
+          "ja": "複雑な行動は、単純な感覚運動結合だけからでも生じうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "Innenwelt",
+        "functional cycle",
+        "feature carrier"
+      ]
+    },
+    {
+      "id": "cs-emergent-behavior",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "emergent behavior",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "創発的行動",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "単純な仕組みから複雑さが出る",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "What looks like fear is really emergent behavior, not intention.",
+          "ja": "恐怖に見えるものは意図でなく創発的行動にすぎない。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "What looks like fear is really emergent behavior, not intention.",
+          "ja": "恐怖に見えるものは意図でなく創発的行動にすぎない。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "receptor",
+        "implementational level",
+        "sensor-motor coupling"
+      ]
+    },
+    {
+      "id": "cs-noisy",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "noisy",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "ノイズの多い",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "不確かで揺らぐ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Real environments are noisy, so the agent acts under uncertainty.",
+          "ja": "現実の環境はノイズが多く、エージェントは不確実性の下で動く。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Real environments are noisy, so the agent acts under uncertainty.",
+          "ja": "現実の環境はノイズが多く、エージェントは不確実性の下で動く。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "zero-crossing",
+        "Innenwelt",
+        "vehicle"
+      ]
+    },
+    {
+      "id": "cs-dynamic",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "dynamic",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "動的な",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "時間とともに変わる",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Because the world is dynamic, yesterday's best spot may be empty today.",
+          "ja": "世界は動的なので、昨日の最良地点が今日は空かもしれない。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Because the world is dynamic, yesterday's best spot may be empty today.",
+          "ja": "世界は動的なので、昨日の最良地点が今日は空かもしれない。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "emergent behavior",
+        "internal model",
+        "algorithmic level"
+      ]
+    },
+    {
+      "id": "cs-internal-model",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "internal model",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "内部モデル",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "脳が持つ世界の予測モデル",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A good internal model lets the agent predict what it hasn't yet seen.",
+          "ja": "良い内部モデルがあれば、まだ見ぬものを予測できる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A good internal model lets the agent predict what it hasn't yet seen.",
+          "ja": "良い内部モデルがあれば、まだ見ぬものを予測できる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "functional cycle",
+        "vehicle",
+        "perception mark"
+      ]
+    },
+    {
+      "id": "cs-salience",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "salience",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "顕著性",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "目立ちやすさ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "High salience makes some cues grab attention before others.",
+          "ja": "顕著性が高いと、ある手がかりが先に注意を引く。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "High salience makes some cues grab attention before others.",
+          "ja": "顕著性が高いと、ある手がかりが先に注意を引く。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "perception"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "feature carrier",
+        "effector",
+        "dynamic"
+      ]
+    },
+    {
+      "id": "cs-bayes-rule",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "Bayes' rule",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "ベイズの定理",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "事前×尤度→事後",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Bayes' rule tells us to weigh the prior against the likelihood.",
+          "ja": "ベイズの定理は、事前確率と尤度を天秤にかけよと教える。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Bayes' rule tells us to weigh the prior against the likelihood.",
+          "ja": "ベイズの定理は、事前確率と尤度を天秤にかけよと教える。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "expected value",
+        "evidence",
+        "sampling"
+      ]
+    },
+    {
+      "id": "cs-inductive-inference",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "inductive inference",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "帰納的推論",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "少ない例から一般化",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Inductive inference means generalizing from a few noisy observations.",
+          "ja": "帰納的推論とは、少数のノイズの多い観測から一般化すること。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Inductive inference means generalizing from a few noisy observations.",
+          "ja": "帰納的推論とは、少数のノイズの多い観測から一般化すること。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "sparse data",
+        "bounded resources",
+        "degree of belief"
+      ]
+    },
+    {
+      "id": "cs-generative-model",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "generative model",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "生成モデル",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "データがどう生まれるかのモデル",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A generative model describes how the observed catches were produced.",
+          "ja": "生成モデルは、観測された釣果がどう生じたかを記述する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A generative model describes how the observed catches were produced.",
+          "ja": "生成モデルは、観測された釣果がどう生じたかを記述する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "belief updating",
+        "explore-exploit trade-off",
+        "reinforcement learning"
+      ]
+    },
+    {
+      "id": "cs-latent-variable",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "latent variable",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "潜在変数",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "直接見えない原因",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The true fish density is a latent variable we never observe directly.",
+          "ja": "真の魚の密度は、直接は観測できない潜在変数だ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The true fish density is a latent variable we never observe directly.",
+          "ja": "真の魚の密度は、直接は観測できない潜在変数だ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "belief updating",
+        "sparse data",
+        "Bayes' rule"
+      ]
+    },
+    {
+      "id": "cs-evidence",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "evidence",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "証拠／根拠",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "観測データ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Each new catch is evidence that shifts the agent's beliefs.",
+          "ja": "新しい釣果はどれも、信念を動かす証拠になる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Each new catch is evidence that shifts the agent's beliefs.",
+          "ja": "新しい釣果はどれも、信念を動かす証拠になる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "reward",
+        "sparse data",
+        "degree of belief"
+      ]
+    },
+    {
+      "id": "cs-belief-updating",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "belief updating",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "信念の更新",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "証拠に応じて考えを直す",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Belief updating is just moving from prior to posterior as data arrive.",
+          "ja": "信念の更新とは、データが来るにつれ事前から事後へ移ること。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Belief updating is just moving from prior to posterior as data arrive.",
+          "ja": "信念の更新とは、データが来るにつれ事前から事後へ移ること。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "explore-exploit trade-off",
+        "noise",
+        "EMA"
+      ]
+    },
+    {
+      "id": "cs-degree-of-belief",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "degree of belief",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "信念の度合い",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "確率＝主観的確信",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "In Bayesian terms, probability is a degree of belief, not a frequency.",
+          "ja": "ベイズ的には、確率は頻度でなく信念の度合いだ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "In Bayesian terms, probability is a degree of belief, not a frequency.",
+          "ja": "ベイズ的には、確率は頻度でなく信念の度合いだ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "inductive bias",
+        "generative model",
+        "EMA"
+      ]
+    },
+    {
+      "id": "cs-marginal",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "marginal",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "周辺（確率）",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "分母の全体和",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The marginal probability of the data normalizes the posterior.",
+          "ja": "データの周辺確率が、事後分布を正規化する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The marginal probability of the data normalizes the posterior.",
+          "ja": "データの周辺確率が、事後分布を正規化する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "generative model",
+        "explore-exploit trade-off",
+        "expected value"
+      ]
+    },
+    {
+      "id": "cs-distribution",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "distribution",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "分布",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "確率のばらつき方",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The agent's belief is a distribution spread across all possible zones.",
+          "ja": "エージェントの信念は、あらゆるゾーンに広がった分布だ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The agent's belief is a distribution spread across all possible zones.",
+          "ja": "エージェントの信念は、あらゆるゾーンに広がった分布だ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "trade-off",
+        "generative model",
+        "generalization"
+      ]
+    },
+    {
+      "id": "cs-inductive-bias",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "inductive bias",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "帰納バイアス",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "学習を導く前提",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Prior knowledge acts as an inductive bias that makes learning possible.",
+          "ja": "事前知識は、学習を可能にする帰納バイアスとして働く。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Prior knowledge acts as an inductive bias that makes learning possible.",
+          "ja": "事前知識は、学習を可能にする帰納バイアスとして働く。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "sparse data",
+        "trade-off",
+        "optimal"
+      ]
+    },
+    {
+      "id": "cs-overhypothesis",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "overhypothesis",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "上位仮説",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "「仮説についての仮説」",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "An overhypothesis is a belief about what kinds of hypotheses are likely.",
+          "ja": "上位仮説とは、どんな種類の仮説がありそうかについての信念。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "An overhypothesis is a belief about what kinds of hypotheses are likely.",
+          "ja": "上位仮説とは、どんな種類の仮説がありそうかについての信念。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "generative model",
+        "Bayes' rule",
+        "inductive bias"
+      ]
+    },
+    {
+      "id": "cs-hierarchical-model",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "hierarchical model",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "階層モデル",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "複数レベルの事前（HBM）",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A hierarchical model learns priors and data at the same time.",
+          "ja": "階層モデルは、事前分布とデータを同時に学習する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A hierarchical model learns priors and data at the same time.",
+          "ja": "階層モデルは、事前分布とデータを同時に学習する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "marginal",
+        "bounded resources",
+        "inductive bias"
+      ]
+    },
+    {
+      "id": "cs-sparse-data",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "sparse data",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "疎なデータ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "例が少ない状況",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Humans generalize well even from sparse data, unlike many machines.",
+          "ja": "人間は多くの機械と違い、疎なデータからもうまく一般化する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Humans generalize well even from sparse data, unlike many machines.",
+          "ja": "人間は多くの機械と違い、疎なデータからもうまく一般化する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "overhypothesis",
+        "hierarchical model",
+        "generative model"
+      ]
+    },
+    {
+      "id": "cs-generalization",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "generalization",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "一般化",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "例から規則を広げる",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Strong generalization from few examples is a hallmark of human learning.",
+          "ja": "少数例からの強い一般化は、人間の学習の特徴だ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Strong generalization from few examples is a hallmark of human learning.",
+          "ja": "少数例からの強い一般化は、人間の学習の特徴だ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "hierarchical model",
+        "expected value",
+        "EMA"
+      ]
+    },
+    {
+      "id": "cs-probability-matching",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "probability matching",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "確率マッチング",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "確率どおりに選ぶ傾向",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Probability matching means choosing options in proportion to their probability.",
+          "ja": "確率マッチングとは、選択肢を確率に比例して選ぶこと。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Probability matching means choosing options in proportion to their probability.",
+          "ja": "確率マッチングとは、選択肢を確率に比例して選ぶこと。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "bounded resources",
+        "trade-off",
+        "belief updating"
+      ]
+    },
+    {
+      "id": "cs-sampling",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "sampling",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "サンプリング",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "分布から標本を取る",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Instead of exact math, the mind may rely on sampling from the posterior.",
+          "ja": "厳密な計算の代わり、心は事後分布からのサンプリングに頼るのかも。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Instead of exact math, the mind may rely on sampling from the posterior.",
+          "ja": "厳密な計算の代わり、心は事後分布からのサンプリングに頼るのかも。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "reinforcement learning",
+        "latent variable",
+        "overhypothesis"
+      ]
+    },
+    {
+      "id": "cs-approximation",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "approximation",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "近似",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "完全解の代わりの見積り",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Since exact inference is costly, the brain uses a cheap approximation.",
+          "ja": "厳密な推論は高コストなので、脳は安価な近似を使う。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Since exact inference is costly, the brain uses a cheap approximation.",
+          "ja": "厳密な推論は高コストなので、脳は安価な近似を使う。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "marginal",
+        "expected value",
+        "evidence"
+      ]
+    },
+    {
+      "id": "cs-reinforcement-learning",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "reinforcement learning",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "強化学習",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "報酬から学ぶ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "In reinforcement learning, the agent learns which actions bring reward.",
+          "ja": "強化学習では、どの行動が報酬をもたらすかを学ぶ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "In reinforcement learning, the agent learns which actions bring reward.",
+          "ja": "強化学習では、どの行動が報酬をもたらすかを学ぶ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "distribution",
+        "expected value",
+        "approximation"
+      ]
+    },
+    {
+      "id": "cs-reward",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "reward",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "報酬",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "行動の良し悪しの信号",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Each fish caught is a reward that reinforces returning to that zone.",
+          "ja": "釣れた魚は、そのゾーンへ戻ることを強める報酬だ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Each fish caught is a reward that reinforces returning to that zone.",
+          "ja": "釣れた魚は、そのゾーンへ戻ることを強める報酬だ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "belief updating",
+        "noise",
+        "EMA"
+      ]
+    },
+    {
+      "id": "cs-policy",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "policy",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "方策",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "状態→行動のルール",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The agent's policy maps each situation to the action it should take.",
+          "ja": "エージェントの方策は、各状況を取るべき行動へ写像する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The agent's policy maps each situation to the action it should take.",
+          "ja": "エージェントの方策は、各状況を取るべき行動へ写像する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "epsilon-greedy",
+        "reinforcement learning",
+        "utility"
+      ]
+    },
+    {
+      "id": "cs-explore-exploit-trade-off",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "explore-exploit trade-off",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "探索と活用",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "冒険するか手堅くいくか",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The explore-exploit trade-off asks: try new zones, or stick with the best?",
+          "ja": "探索と活用のトレードオフは「新ゾーンを試すか最良に留まるか」を問う。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The explore-exploit trade-off asks: try new zones, or stick with the best?",
+          "ja": "探索と活用のトレードオフは「新ゾーンを試すか最良に留まるか」を問う。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "distribution",
+        "Bayes' rule",
+        "trade-off"
+      ]
+    },
+    {
+      "id": "cs-epsilon-greedy",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "epsilon-greedy",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "εグリーディ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "一定確率でランダム探索",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "An epsilon-greedy agent picks the best zone but explores randomly ten percent of the time.",
+          "ja": "εグリーディなエージェントは最良ゾーンを選ぶが、1割はランダムに探索する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "An epsilon-greedy agent picks the best zone but explores randomly ten percent of the time.",
+          "ja": "εグリーディなエージェントは最良ゾーンを選ぶが、1割はランダムに探索する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "trade-off",
+        "bounded resources",
+        "hierarchical model"
+      ]
+    },
+    {
+      "id": "cs-ema",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "EMA",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "指数移動平均",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "新しい値を重視する平均（exponential moving average）",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "We use an EMA so recent catches count more than old ones.",
+          "ja": "指数移動平均を使い、古い釣果より最近の釣果を重く見る。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "We use an EMA so recent catches count more than old ones.",
+          "ja": "指数移動平均を使い、古い釣果より最近の釣果を重く見る。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "bounded resources",
+        "evidence",
+        "epsilon-greedy"
+      ]
+    },
+    {
+      "id": "cs-expected-value",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "expected value",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "期待値",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "平均的に得られる値",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The agent chooses the zone with the highest expected value of fish.",
+          "ja": "エージェントは、魚の期待値が最も高いゾーンを選ぶ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The agent chooses the zone with the highest expected value of fish.",
+          "ja": "エージェントは、魚の期待値が最も高いゾーンを選ぶ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "reinforcement learning",
+        "approximation",
+        "sampling"
+      ]
+    },
+    {
+      "id": "cs-utility",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "utility",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "効用",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "主観的な価値",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Utility captures how much the agent actually values each outcome.",
+          "ja": "効用は、各結果を実際どれだけ重んじるかを捉える。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Utility captures how much the agent actually values each outcome.",
+          "ja": "効用は、各結果を実際どれだけ重んじるかを捉える。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "generative model",
+        "approximation",
+        "evidence"
+      ]
+    },
+    {
+      "id": "cs-trade-off",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "trade-off",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "トレードオフ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "あちら立てればこちら立たず",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Every strategy involves a trade-off between caution and curiosity.",
+          "ja": "あらゆる戦略は、慎重さと好奇心のトレードオフを含む。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Every strategy involves a trade-off between caution and curiosity.",
+          "ja": "あらゆる戦略は、慎重さと好奇心のトレードオフを含む。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "latent variable",
+        "degree of belief",
+        "policy"
+      ]
+    },
+    {
+      "id": "cs-optimal",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "optimal",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "最適な",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "最良の",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The optimal policy balances exploration and exploitation over the long run.",
+          "ja": "最適な方策は、長期的に探索と活用のバランスをとる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The optimal policy balances exploration and exploitation over the long run.",
+          "ja": "最適な方策は、長期的に探索と活用のバランスをとる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "approximation",
+        "distribution",
+        "explore-exploit trade-off"
+      ]
+    },
+    {
+      "id": "cs-noise",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "noise",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "ノイズ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "ランダムな乱れ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Random noise in the catches can fool an agent that updates too fast.",
+          "ja": "釣果のランダムなノイズは、更新の速すぎるエージェントを欺きうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Random noise in the catches can fool an agent that updates too fast.",
+          "ja": "釣果のランダムなノイズは、更新の速すぎるエージェントを欺きうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "Bayes' rule",
+        "policy",
+        "sampling"
+      ]
+    },
+    {
+      "id": "cs-bounded-resources",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "bounded resources",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "限られた資源",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "有限の計算力・時間",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "With bounded resources, the mind must approximate rather than compute exactly.",
+          "ja": "限られた資源の中で、心は厳密計算でなく近似せざるをえない。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "With bounded resources, the mind must approximate rather than compute exactly.",
+          "ja": "限られた資源の中で、心は厳密計算でなく近似せざるをえない。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "bayesian-inference"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "distribution",
+        "latent variable",
+        "approximation"
+      ]
+    },
+    {
+      "id": "cs-agent",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "agent",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "エージェント",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "自律的に動く主体",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Each fisher in the simulation is an agent following its own simple rules.",
+          "ja": "シミュレーション内の各漁師は、単純なルールに従うエージェント。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Each fisher in the simulation is an agent following its own simple rules.",
+          "ja": "シミュレーション内の各漁師は、単純なルールに従うエージェント。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "strategy",
+        "iterated game",
+        "public good"
+      ]
+    },
+    {
+      "id": "cs-multi-agent-system",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "multi-agent system",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "マルチエージェント系",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "多数の主体が相互作用",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "In a multi-agent system, outcomes depend on what everyone else does.",
+          "ja": "マルチエージェント系では、結果は他の全員の行動に左右される。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "In a multi-agent system, outcomes depend on what everyone else does.",
+          "ja": "マルチエージェント系では、結果は他の全員の行動に左右される。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "agent",
+        "evolutionary dynamics",
+        "free rider"
+      ]
+    },
+    {
+      "id": "cs-interaction",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "interaction",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "相互作用",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "主体どうしのやり取り",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Repeated interaction lets trust—or distrust—build up over time.",
+          "ja": "反復する相互作用が、信頼あるいは不信を育てる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Repeated interaction lets trust—or distrust—build up over time.",
+          "ja": "反復する相互作用が、信頼あるいは不信を育てる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "free rider",
+        "collective action",
+        "retaliation"
+      ]
+    },
+    {
+      "id": "cs-competition",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "competition",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "競争",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "利害の対立",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Under scarce fish, competition can drive the whole stock to collapse.",
+          "ja": "魚が乏しいと、競争が資源全体を崩壊へ追い込みうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Under scarce fish, competition can drive the whole stock to collapse.",
+          "ja": "魚が乏しいと、競争が資源全体を崩壊へ追い込みうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "free rider",
+        "evolutionary dynamics",
+        "complexity"
+      ]
+    },
+    {
+      "id": "cs-free-rider",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "free rider",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "ただ乗り",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "貢献せず利益だけ得る",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A free rider enjoys the shared pier without helping to build it.",
+          "ja": "ただ乗りする者は、桟橋を作らずに共有の桟橋を享受する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A free rider enjoys the shared pier without helping to build it.",
+          "ja": "ただ乗りする者は、桟橋を作らずに共有の桟橋を享受する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "governance",
+        "tragedy of the commons",
+        "stability"
+      ]
+    },
+    {
+      "id": "cs-iterated-game",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "iterated game",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "反復ゲーム",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "何度も繰り返す対戦",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "In an iterated game, today's betrayal can be punished tomorrow.",
+          "ja": "反復ゲームでは、今日の裏切りが明日罰されうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "In an iterated game, today's betrayal can be punished tomorrow.",
+          "ja": "反復ゲームでは、今日の裏切りが明日罰されうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "norm",
+        "governance",
+        "fitness"
+      ]
+    },
+    {
+      "id": "cs-strategy",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "strategy",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "戦略",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "行動の方針",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Tit-for-tat is a strategy that mirrors whatever the opponent just did.",
+          "ja": "しっぺ返しは、相手が直前にした通りをまねる戦略。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Tit-for-tat is a strategy that mirrors whatever the opponent just did.",
+          "ja": "しっぺ返しは、相手が直前にした通りをまねる戦略。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "public good",
+        "evolutionary dynamics",
+        "norm"
+      ]
+    },
+    {
+      "id": "cs-tit-for-tat",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "tit-for-tat",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "しっぺ返し",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "相手のまねをする戦略",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Tit-for-tat cooperates first, then simply copies the other player.",
+          "ja": "しっぺ返しは、まず協力し、あとは相手をそのまままねる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Tit-for-tat cooperates first, then simply copies the other player.",
+          "ja": "しっぺ返しは、まず協力し、あとは相手をそのまままねる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "fitness",
+        "complexity",
+        "competition"
+      ]
+    },
+    {
+      "id": "cs-retaliation",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "retaliation",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "報復",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "裏切りへの仕返し",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The threat of retaliation is what keeps agents honest.",
+          "ja": "報復の脅しこそが、エージェントを正直に保つ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The threat of retaliation is what keeps agents honest.",
+          "ja": "報復の脅しこそが、エージェントを正直に保つ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "fitness",
+        "governance",
+        "coordination"
+      ]
+    },
+    {
+      "id": "cs-tragedy-of-the-commons",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "tragedy of the commons",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "共有地の悲劇",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "みんなの資源が枯れる",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Overfishing is a classic tragedy of the commons.",
+          "ja": "乱獲は、典型的な共有地の悲劇だ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Overfishing is a classic tragedy of the commons.",
+          "ja": "乱獲は、典型的な共有地の悲劇だ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "strategy",
+        "public good",
+        "norm"
+      ]
+    },
+    {
+      "id": "cs-public-good",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "public good",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "公共財",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "皆で使える財",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A pier is a public good: everyone benefits whether or not they paid.",
+          "ja": "桟橋は公共財だ。払ったかに関係なく皆が恩恵を受ける。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A pier is a public good: everyone benefits whether or not they paid.",
+          "ja": "桟橋は公共財だ。払ったかに関係なく皆が恩恵を受ける。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "norm",
+        "retaliation",
+        "complexity"
+      ]
+    },
+    {
+      "id": "cs-commons",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "commons",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "コモンズ／共有資源",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "Ostromの研究対象",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Ostrom studied how communities manage a shared commons without collapse.",
+          "ja": "Ostromは、共同体が崩壊せず共有資源をどう管理するか研究した。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Ostrom studied how communities manage a shared commons without collapse.",
+          "ja": "Ostromは、共同体が崩壊せず共有資源をどう管理するか研究した。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "governance",
+        "tit-for-tat",
+        "public good"
+      ]
+    },
+    {
+      "id": "cs-collective-action",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "collective action",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "集合行為",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "集団での協働",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Building the pier requires collective action that no one can do alone.",
+          "ja": "桟橋の建設は、誰も一人ではできない集合行為を要する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Building the pier requires collective action that no one can do alone.",
+          "ja": "桟橋の建設は、誰も一人ではできない集合行為を要する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "competition",
+        "retaliation",
+        "iterated game"
+      ]
+    },
+    {
+      "id": "cs-governance",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "governance",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "ガバナンス／統治",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "ルールで秩序を保つ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Ostrom showed that local governance can outperform top-down rules.",
+          "ja": "Ostromは、地域のガバナンスがトップダウン規則を上回りうると示した。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Ostrom showed that local governance can outperform top-down rules.",
+          "ja": "Ostromは、地域のガバナンスがトップダウン規則を上回りうると示した。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "iterated game",
+        "complexity",
+        "tragedy of the commons"
+      ]
+    },
+    {
+      "id": "cs-stability",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "stability",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "安定性",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "状態が続くこと",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Norms give cooperation the stability it needs to survive defectors.",
+          "ja": "規範は、裏切り者に耐えて生き残る安定性を協力に与える。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Norms give cooperation the stability it needs to survive defectors.",
+          "ja": "規範は、裏切り者に耐えて生き残る安定性を協力に与える。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "tragedy of the commons",
+        "competition",
+        "multi-agent system"
+      ]
+    },
+    {
+      "id": "cs-coordination",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "coordination",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "協調",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "足並みをそろえる",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Global coordination improved once a few agents acted a little randomly.",
+          "ja": "少数のエージェントが少しランダムに動くと、全体の協調が改善した。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Global coordination improved once a few agents acted a little randomly.",
+          "ja": "少数のエージェントが少しランダムに動くと、全体の協調が改善した。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "tit-for-tat",
+        "iterated game",
+        "strategy"
+      ]
+    },
+    {
+      "id": "cs-norm",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "norm",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "規範",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "集団の暗黙のルール",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A shared norm can sustain cooperation even without formal punishment.",
+          "ja": "共有された規範は、正式な罰がなくても協力を支えうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A shared norm can sustain cooperation even without formal punishment.",
+          "ja": "共有された規範は、正式な罰がなくても協力を支えうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "evolutionary dynamics",
+        "feedback loop",
+        "strategy"
+      ]
+    },
+    {
+      "id": "cs-evolutionary-dynamics",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "evolutionary dynamics",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "進化ダイナミクス",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "戦略が淘汰され変化",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Evolutionary dynamics let successful strategies spread through the population.",
+          "ja": "進化ダイナミクスにより、成功した戦略が集団に広がる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Evolutionary dynamics let successful strategies spread through the population.",
+          "ja": "進化ダイナミクスにより、成功した戦略が集団に広がる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "tit-for-tat",
+        "free rider",
+        "norm"
+      ]
+    },
+    {
+      "id": "cs-fitness",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "fitness",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "適応度",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "生き残りやすさ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A strategy's fitness is measured by how well it spreads over generations.",
+          "ja": "戦略の適応度は、世代を超えてどれだけ広がるかで測る。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A strategy's fitness is measured by how well it spreads over generations.",
+          "ja": "戦略の適応度は、世代を超えてどれだけ広がるかで測る。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "evolutionary dynamics",
+        "collective action",
+        "multi-agent system"
+      ]
+    },
+    {
+      "id": "cs-complexity",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "complexity",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "複雑性",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "単純に還元できない性質",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Simple rules interacting can produce surprising complexity.",
+          "ja": "相互作用する単純なルールが、驚くほどの複雑性を生みうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Simple rules interacting can produce surprising complexity.",
+          "ja": "相互作用する単純なルールが、驚くほどの複雑性を生みうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "agent",
+        "retaliation",
+        "strategy"
+      ]
+    },
+    {
+      "id": "cs-feedback-loop",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "feedback loop",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "フィードバックループ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "結果が原因に戻る",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A feedback loop can amplify a small act of trust into widespread cooperation.",
+          "ja": "フィードバックループは、小さな信頼を広範な協力へ増幅しうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A feedback loop can amplify a small act of trust into widespread cooperation.",
+          "ja": "フィードバックループは、小さな信頼を広範な協力へ増幅しうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "game-theory"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "commons",
+        "norm",
+        "governance"
+      ]
+    },
+    {
+      "id": "cs-democracy",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "democracy",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "民主主義",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "皆で決める仕組み",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The book asks how digital tools can deepen democracy rather than erode it.",
+          "ja": "本書は、デジタルの道具が民主主義をどう損なわず深めうるかを問う。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The book asks how digital tools can deepen democracy rather than erode it.",
+          "ja": "本書は、デジタルの道具が民主主義をどう損なわず深めうるかを問う。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "trust",
+        "inclusion",
+        "equity"
+      ]
+    },
+    {
+      "id": "cs-digital-fairness",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "digital fairness",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "デジタル公正",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "技術上の公平さ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Digital fairness asks who benefits and who is left out by a technology.",
+          "ja": "デジタル公正は、ある技術で誰が得をし誰が取り残されるかを問う。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Digital fairness asks who benefits and who is left out by a technology.",
+          "ja": "デジタル公正は、ある技術で誰が得をし誰が取り残されるかを問う。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "diversity",
+        "equity",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "cs-diversity",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "diversity",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "多様性",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "違いがあること",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Diversity of viewpoints can make a group's decisions more robust.",
+          "ja": "視点の多様性は、集団の意思決定をより頑健にしうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Diversity of viewpoints can make a group's decisions more robust.",
+          "ja": "視点の多様性は、集団の意思決定をより頑健にしうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "inclusion",
+        "equity",
+        "infrastructure"
+      ]
+    },
+    {
+      "id": "cs-collaboration",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "collaboration",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "協働",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "一緒に作ること",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Healthy collaboration across differences is the core aim of plurality.",
+          "ja": "差異を越えた健全な協働こそ、多元性の中心的目標。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Healthy collaboration across differences is the core aim of plurality.",
+          "ja": "差異を越えた健全な協働こそ、多元性の中心的目標。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "trust",
+        "democracy",
+        "diversity"
+      ]
+    },
+    {
+      "id": "cs-collective-intelligence",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "collective intelligence",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "集合知",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "多数の知恵の結集",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Collective intelligence emerges when many voices are combined well.",
+          "ja": "集合知は、多くの声がうまく結び合わされるとき立ち現れる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Collective intelligence emerges when many voices are combined well.",
+          "ja": "集合知は、多くの声がうまく結び合わされるとき立ち現れる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "equity",
+        "digital commons",
+        "bias"
+      ]
+    },
+    {
+      "id": "cs-bias",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "bias",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "偏り／バイアス",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "不公平な傾向",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "An algorithm can inherit bias from the data it was trained on.",
+          "ja": "アルゴリズムは、学習データから偏りを受け継ぎうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "An algorithm can inherit bias from the data it was trained on.",
+          "ja": "アルゴリズムは、学習データから偏りを受け継ぎうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "digital fairness",
+        "accountability",
+        "digital commons"
+      ]
+    },
+    {
+      "id": "cs-equity",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "equity",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "公平（配慮した平等）",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "状況に応じた平等",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Equity means adjusting for different starting points, not treating everyone identically.",
+          "ja": "公平とは、全員を同一に扱うのでなく異なる出発点を調整すること。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Equity means adjusting for different starting points, not treating everyone identically.",
+          "ja": "公平とは、全員を同一に扱うのでなく異なる出発点を調整すること。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "diversity",
+        "digital commons",
+        "digital fairness"
+      ]
+    },
+    {
+      "id": "cs-inclusion",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "inclusion",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "包摂",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "誰も排除しない",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Inclusion ensures marginalized groups can actually shape the outcome.",
+          "ja": "包摂は、周縁化された集団が実際に結果を形づくれるようにする。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Inclusion ensures marginalized groups can actually shape the outcome.",
+          "ja": "包摂は、周縁化された集団が実際に結果を形づくれるようにする。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "equity",
+        "trust",
+        "infrastructure"
+      ]
+    },
+    {
+      "id": "cs-trust",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "trust",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "信頼",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "制度や相手を信じる",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Shared infrastructure only works if people trust how it is governed.",
+          "ja": "共有インフラは、その統治を人々が信頼して初めて機能する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Shared infrastructure only works if people trust how it is governed.",
+          "ja": "共有インフラは、その統治を人々が信頼して初めて機能する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "collective intelligence",
+        "digital commons",
+        "diversity"
+      ]
+    },
+    {
+      "id": "cs-accountability",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "accountability",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "説明責任",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "結果に責任を持つ",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Accountability means those who hold power can be questioned and checked.",
+          "ja": "説明責任とは、権力を持つ者が問われチェックされうること。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Accountability means those who hold power can be questioned and checked.",
+          "ja": "説明責任とは、権力を持つ者が問われチェックされうること。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "infrastructure",
+        "collaboration",
+        "digital commons"
+      ]
+    },
+    {
+      "id": "cs-digital-commons",
+      "type": "phrase",
+      "deck": "cogsci-vocab",
+      "term": "digital commons",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "デジタルコモンズ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "共有される情報資源",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Open data can form a digital commons that anyone may build upon.",
+          "ja": "オープンデータは、誰もが上に築けるデジタルコモンズを形づくりうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Open data can form a digital commons that anyone may build upon.",
+          "ja": "オープンデータは、誰もが上に築けるデジタルコモンズを形づくりうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "trust",
+        "inclusion",
+        "accountability"
+      ]
+    },
+    {
+      "id": "cs-infrastructure",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "infrastructure",
+      "ipa": null,
+      "pos": null,
+      "level": "大学院",
+      "meaning_ja": "インフラ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "土台となる仕組み",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Democratic values must be built into the infrastructure itself.",
+          "ja": "民主的な価値は、インフラそのものに組み込まれねばならない。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Democratic values must be built into the infrastructure itself.",
+          "ja": "民主的な価値は、インフラそのものに組み込まれねばならない。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "plurality"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "digital commons",
+        "diversity",
+        "democracy"
+      ]
+    },
+    {
+      "id": "cs-assume",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "assume",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "仮定する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "We assume that…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Let's assume the fish density stays constant during one trial.",
+          "ja": "一回の試行の間、魚の密度は一定だと仮定しよう。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Let's assume the fish density stays constant during one trial.",
+          "ja": "一回の試行の間、魚の密度は一定だと仮定しよう。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "explore",
+        "argue",
+        "suggest"
+      ]
+    },
+    {
+      "id": "cs-propose",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "propose",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "提案する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "This paper proposes…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "I'd propose testing the agent with a much stronger prior.",
+          "ja": "もっと強い事前分布でエージェントを試すことを提案したい。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "I'd propose testing the agent with a much stronger prior.",
+          "ja": "もっと強い事前分布でエージェントを試すことを提案したい。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "encode",
+        "argue",
+        "generalize"
+      ]
+    },
+    {
+      "id": "cs-argue",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "argue",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "主張する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "The author argues that…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Clark argues that the body is part of the cognitive system.",
+          "ja": "Clarkは、身体は認知システムの一部だと主張する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Clark argues that the body is part of the cognitive system.",
+          "ja": "Clarkは、身体は認知システムの一部だと主張する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "stem from",
+        "illustrate",
+        "emerge"
+      ]
+    },
+    {
+      "id": "cs-suggest",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "suggest",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "示唆する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "Results suggest that…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "These results suggest the agent updates its beliefs too aggressively.",
+          "ja": "この結果は、エージェントが信念を過剰更新していることを示唆する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "These results suggest the agent updates its beliefs too aggressively.",
+          "ja": "この結果は、エージェントが信念を過剰更新していることを示唆する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "account for",
+        "investigate",
+        "minimize"
+      ]
+    },
+    {
+      "id": "cs-indicate",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "indicate",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "示す",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "The data indicate…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The rising catch rate indicates the agent found a rich zone.",
+          "ja": "釣果率の上昇は、豊かなゾーンを見つけたことを示す。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The rising catch rate indicates the agent found a rich zone.",
+          "ja": "釣果率の上昇は、豊かなゾーンを見つけたことを示す。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "demonstrate",
+        "observe",
+        "illustrate"
+      ]
+    },
+    {
+      "id": "cs-infer",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "infer",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "推論する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "We can infer…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "From the payoff pattern we can infer that defection dominated.",
+          "ja": "利得のパターンから、裏切りが支配的だったと推論できる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "From the payoff pattern we can infer that defection dominated.",
+          "ja": "利得のパターンから、裏切りが支配的だったと推論できる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "constrain",
+        "challenge",
+        "explain"
+      ]
+    },
+    {
+      "id": "cs-derive",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "derive",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "導き出す",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "derived from…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "This update rule is derived directly from Bayes' rule.",
+          "ja": "この更新則は、ベイズの定理から直接導かれる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "This update rule is derived directly from Bayes' rule.",
+          "ja": "この更新則は、ベイズの定理から直接導かれる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "encode",
+        "explore",
+        "optimize"
+      ]
+    },
+    {
+      "id": "cs-estimate",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "estimate",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "見積もる",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "estimate the value",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The agent has to estimate the fish density it cannot see.",
+          "ja": "エージェントは、見えない魚の密度を見積もらねばならない。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The agent has to estimate the fish density it cannot see.",
+          "ja": "エージェントは、見えない魚の密度を見積もらねばならない。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "interpret",
+        "approximate",
+        "generalize"
+      ]
+    },
+    {
+      "id": "cs-update",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "update",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "更新する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "update beliefs",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "After each catch, the agent updates its belief about the zone.",
+          "ja": "釣果のたびに、そのゾーンへの信念を更新する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "After each catch, the agent updates its belief about the zone.",
+          "ja": "釣果のたびに、そのゾーンへの信念を更新する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "derive",
+        "demonstrate",
+        "interpret"
+      ]
+    },
+    {
+      "id": "cs-observe",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "observe",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "観測する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "We observe that…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "We observe that cooperation collapses once one agent defects.",
+          "ja": "一つのエージェントが裏切ると協力が崩れるのが観察される。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "We observe that cooperation collapses once one agent defects.",
+          "ja": "一つのエージェントが裏切ると協力が崩れるのが観察される。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "specify",
+        "characterize",
+        "reveal"
+      ]
+    },
+    {
+      "id": "cs-represent",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "represent",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "表現する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "represents the state",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The grid represents the agent's belief over every fishing zone.",
+          "ja": "グリッドは、全漁場に対するエージェントの信念を表す。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The grid represents the agent's belief over every fishing zone.",
+          "ja": "グリッドは、全漁場に対するエージェントの信念を表す。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "infer",
+        "yield",
+        "interpret"
+      ]
+    },
+    {
+      "id": "cs-encode",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "encode",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "符号化する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "knowledge is encoded",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Background knowledge is encoded in the shape of the prior.",
+          "ja": "背景知識は、事前分布の形に符号化される。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Background knowledge is encoded in the shape of the prior.",
+          "ja": "背景知識は、事前分布の形に符号化される。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "hold",
+        "constrain",
+        "assume"
+      ]
+    },
+    {
+      "id": "cs-model",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "model",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "モデル化する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "We model X as…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "We model each fisher as an agent with a fixed strategy.",
+          "ja": "各漁師を、固定戦略を持つエージェントとしてモデル化する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "We model each fisher as an agent with a fixed strategy.",
+          "ja": "各漁師を、固定戦略を持つエージェントとしてモデル化する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "investigate",
+        "illustrate",
+        "update"
+      ]
+    },
+    {
+      "id": "cs-predict",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "predict",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "予測する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "predicts the outcome",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A good internal model should predict tomorrow's best zone.",
+          "ja": "良い内部モデルは、明日の最良ゾーンを予測できるはず。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A good internal model should predict tomorrow's best zone.",
+          "ja": "良い内部モデルは、明日の最良ゾーンを予測できるはず。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "demonstrate",
+        "interpret",
+        "infer"
+      ]
+    },
+    {
+      "id": "cs-generalize",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "generalize",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "一般化する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "generalize to…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The child generalizes \"horse\" to all horses from a few examples.",
+          "ja": "子どもは数例から「馬」を全ての馬へ一般化する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The child generalizes \"horse\" to all horses from a few examples.",
+          "ja": "子どもは数例から「馬」を全ての馬へ一般化する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "characterize",
+        "formalize",
+        "assume"
+      ]
+    },
+    {
+      "id": "cs-account-for",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "account for",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "説明する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "accounts for the data",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Does this model account for why cooperation survived?",
+          "ja": "このモデルは、なぜ協力が生き残ったかを説明できるか。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Does this model account for why cooperation survived?",
+          "ja": "このモデルは、なぜ協力が生き残ったかを説明できるか。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "estimate",
+        "capture",
+        "define"
+      ]
+    },
+    {
+      "id": "cs-explain",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "explain",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "説明する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "This explains why…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The prior explains why the agent ignored the poor zones.",
+          "ja": "事前分布が、なぜ貧しいゾーンを無視したかを説明する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The prior explains why the agent ignored the poor zones.",
+          "ja": "事前分布が、なぜ貧しいゾーンを無視したかを説明する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "yield",
+        "propose",
+        "investigate"
+      ]
+    },
+    {
+      "id": "cs-demonstrate",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "demonstrate",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "実証する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "We demonstrate that…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Our runs demonstrate that tit-for-tat beats pure greed over time.",
+          "ja": "実行結果は、しっぺ返しが長期的に純粋な貪欲さに勝つと実証する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Our runs demonstrate that tit-for-tat beats pure greed over time.",
+          "ja": "実行結果は、しっぺ返しが長期的に純粋な貪欲さに勝つと実証する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "represent",
+        "yield",
+        "emerge"
+      ]
+    },
+    {
+      "id": "cs-investigate",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "investigate",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "調べる",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "investigate how…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "We investigate how noise changes the level of cooperation.",
+          "ja": "ノイズが協力の水準をどう変えるかを調べる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "We investigate how noise changes the level of cooperation.",
+          "ja": "ノイズが協力の水準をどう変えるかを調べる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "predict",
+        "yield",
+        "propose"
+      ]
+    },
+    {
+      "id": "cs-explore",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "explore",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "探究する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "explore the space",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The agent must explore new zones before it can exploit them.",
+          "ja": "エージェントは、活用の前に新しいゾーンを探索せねばならない。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The agent must explore new zones before it can exploit them.",
+          "ja": "エージェントは、活用の前に新しいゾーンを探索せねばならない。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "generalize",
+        "emerge",
+        "specify"
+      ]
+    },
+    {
+      "id": "cs-illustrate",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "illustrate",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "例示する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "to illustrate…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "This example illustrates the explore-exploit trade-off nicely.",
+          "ja": "この例は、探索と活用のトレードオフをうまく例示する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "This example illustrates the explore-exploit trade-off nicely.",
+          "ja": "この例は、探索と活用のトレードオフをうまく例示する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "represent",
+        "hold",
+        "specify"
+      ]
+    },
+    {
+      "id": "cs-capture",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "capture",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "捉える",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "captures the essence",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The payoff matrix captures the core tension of the dilemma.",
+          "ja": "利得表は、ジレンマの核心的な緊張を捉える。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The payoff matrix captures the core tension of the dilemma.",
+          "ja": "利得表は、ジレンマの核心的な緊張を捉える。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "indicate",
+        "encode",
+        "challenge"
+      ]
+    },
+    {
+      "id": "cs-yield",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "yield",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "もたらす",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "yields new conclusions",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Combining prior and likelihood yields the posterior belief.",
+          "ja": "事前と尤度を組み合わせると、事後の信念が得られる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Combining prior and likelihood yields the posterior belief.",
+          "ja": "事前と尤度を組み合わせると、事後の信念が得られる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "infer",
+        "observe",
+        "model"
+      ]
+    },
+    {
+      "id": "cs-emerge",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "emerge",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "立ち現れる",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "behavior emerges",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Complex cooperation can emerge from very simple rules.",
+          "ja": "複雑な協力は、ごく単純なルールから立ち現れうる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Complex cooperation can emerge from very simple rules.",
+          "ja": "複雑な協力は、ごく単純なルールから立ち現れうる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "stem from",
+        "reveal",
+        "highlight"
+      ]
+    },
+    {
+      "id": "cs-optimize",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "optimize",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "最適化する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "optimize the policy",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The agent tries to optimize its long-run total catch.",
+          "ja": "エージェントは、長期の総釣果を最適化しようとする。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The agent tries to optimize its long-run total catch.",
+          "ja": "エージェントは、長期の総釣果を最適化しようとする。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "argue",
+        "define",
+        "account for"
+      ]
+    },
+    {
+      "id": "cs-maximize",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "maximize",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "最大化する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "maximize reward",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A greedy agent only wants to maximize its immediate reward.",
+          "ja": "貪欲なエージェントは、目先の報酬を最大化したいだけ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A greedy agent only wants to maximize its immediate reward.",
+          "ja": "貪欲なエージェントは、目先の報酬を最大化したいだけ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "formalize",
+        "yield",
+        "propose"
+      ]
+    },
+    {
+      "id": "cs-minimize",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "minimize",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "最小化する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "minimize error",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The learning rule tries to minimize prediction error.",
+          "ja": "学習則は、予測誤差を最小化しようとする。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The learning rule tries to minimize prediction error.",
+          "ja": "学習則は、予測誤差を最小化しようとする。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "interpret",
+        "encode",
+        "reveal"
+      ]
+    },
+    {
+      "id": "cs-constrain",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "constrain",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "制約する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "constrains learning",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "A strong prior constrains which hypotheses the agent considers.",
+          "ja": "強い事前分布は、考える仮説を制約する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "A strong prior constrains which hypotheses the agent considers.",
+          "ja": "強い事前分布は、考える仮説を制約する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "explain",
+        "emerge",
+        "infer"
+      ]
+    },
+    {
+      "id": "cs-approximate",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "approximate",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "近似する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "approximate the posterior",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Because exact inference is hard, the brain approximates it.",
+          "ja": "厳密な推論は難しいので、脳はそれを近似する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Because exact inference is hard, the brain approximates it.",
+          "ja": "厳密な推論は難しいので、脳はそれを近似する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "emerge",
+        "challenge",
+        "hold"
+      ]
+    },
+    {
+      "id": "cs-characterize",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "characterize",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "特徴づける",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "characterize the biases",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "We can characterize the agent's priors from its choices.",
+          "ja": "エージェントの選択から、その事前分布を特徴づけられる。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "We can characterize the agent's priors from its choices.",
+          "ja": "エージェントの選択から、その事前分布を特徴づけられる。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "approximate",
+        "interpret",
+        "challenge"
+      ]
+    },
+    {
+      "id": "cs-formalize",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "formalize",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "定式化する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "formalize the idea",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The game formalizes the tension between self- and group-interest.",
+          "ja": "そのゲームは、自己利益と集団利益の緊張を定式化する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The game formalizes the tension between self- and group-interest.",
+          "ja": "そのゲームは、自己利益と集団利益の緊張を定式化する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "investigate",
+        "constrain",
+        "observe"
+      ]
+    },
+    {
+      "id": "cs-define",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "define",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "定義する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "We define X as…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Let me define what I mean by a \"free rider\" here.",
+          "ja": "ここで言う「ただ乗り」の意味を定義させて。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Let me define what I mean by a \"free rider\" here.",
+          "ja": "ここで言う「ただ乗り」の意味を定義させて。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "characterize",
+        "capture",
+        "highlight"
+      ]
+    },
+    {
+      "id": "cs-specify",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "specify",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "特定する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "specify the prior",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "You need to specify the prior before the agent can start.",
+          "ja": "エージェントが始める前に、事前分布を特定する必要がある。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "You need to specify the prior before the agent can start.",
+          "ja": "エージェントが始める前に、事前分布を特定する必要がある。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "explore",
+        "suggest",
+        "approximate"
+      ]
+    },
+    {
+      "id": "cs-interpret",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "interpret",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "解釈する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "interpret the results",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "How should we interpret this sudden drop in cooperation?",
+          "ja": "協力のこの急な低下を、どう解釈すべきか。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "How should we interpret this sudden drop in cooperation?",
+          "ja": "協力のこの急な低下を、どう解釈すべきか。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "specify",
+        "approximate",
+        "indicate"
+      ]
+    },
+    {
+      "id": "cs-reveal",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "reveal",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "明らかにする",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "reveals a pattern",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The session logs reveal how our thinking evolved.",
+          "ja": "セッションログは、私たちの思考がどう進化したかを明らかにする。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The session logs reveal how our thinking evolved.",
+          "ja": "セッションログは、私たちの思考がどう進化したかを明らかにする。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "propose",
+        "approximate",
+        "formalize"
+      ]
+    },
+    {
+      "id": "cs-highlight",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "highlight",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "強調する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "highlights the need",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "This case highlights the danger of updating too fast.",
+          "ja": "この事例は、更新が速すぎる危険を強調する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "This case highlights the danger of updating too fast.",
+          "ja": "この事例は、更新が速すぎる危険を強調する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "model",
+        "formalize",
+        "challenge"
+      ]
+    },
+    {
+      "id": "cs-challenge",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "challenge",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "異議を唱える",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "challenge the view",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "These findings challenge the idea that more AI use is always better.",
+          "ja": "この発見は、AIを使うほど常に良いという考えに異議を唱える。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "These findings challenge the idea that more AI use is always better.",
+          "ja": "この発見は、AIを使うほど常に良いという考えに異議を唱える。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "suggest",
+        "predict",
+        "propose"
+      ]
+    },
+    {
+      "id": "cs-hold",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "hold",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "成り立つ",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "the result holds",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "Does this result still hold when we add more agents?",
+          "ja": "エージェントを増やしても、この結果は依然成り立つか。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "Does this result still hold when we add more agents?",
+          "ja": "エージェントを増やしても、この結果は依然成り立つか。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "represent",
+        "indicate",
+        "reveal"
+      ]
+    },
+    {
+      "id": "cs-rely-on",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "rely on",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "依存する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "rely on assumptions",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The conclusion relies on the assumption that fish don't move.",
+          "ja": "結論は、魚が動かないという仮定に依存する。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The conclusion relies on the assumption that fish don't move.",
+          "ja": "結論は、魚が動かないという仮定に依存する。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "explore",
+        "approximate",
+        "highlight"
+      ]
+    },
+    {
+      "id": "cs-stem-from",
+      "type": "word",
+      "deck": "cogsci-vocab",
+      "term": "stem from",
+      "ipa": null,
+      "pos": "verb",
+      "level": "大学院",
+      "meaning_ja": "由来する",
+      "gloss_en": null,
+      "etymology": null,
+      "mnemonic": "stems from…",
+      "context_quote": null,
+      "examples": [
+        {
+          "en": "The cooperation seems to stem from repeated interaction.",
+          "ja": "協力は、反復する相互作用に由来するようだ。",
+          "scene": "discussion"
+        }
+      ],
+      "sentences": [
+        {
+          "en": "The cooperation seems to stem from repeated interaction.",
+          "ja": "協力は、反復する相互作用に由来するようだ。",
+          "scene": "discussion"
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "register": "academic",
+      "tags": [
+        "cognitive-science",
+        "academic-verbs"
+      ],
+      "source": "cogsci-vocab",
+      "related": [
+        "reveal",
+        "infer",
+        "account for"
+      ]
     }
   ]
 }

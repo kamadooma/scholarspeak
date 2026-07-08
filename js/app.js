@@ -40,6 +40,10 @@ const esc = (s) => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;');
 
+/* 統一スピーカーアイコン(currentColorを継承・タブのピクトグラムと同じ線幅/スタイル)。
+   絵文字🔊の代わりにこれを使い、色・線を全画面で統一する。 */
+const SPK_ICON = '<svg class="ico-spk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h3.5L13 19V5L7.5 9H4Z"/><path d="M16.5 8.8a4.5 4.5 0 0 1 0 6.4M19 6.2a8 8 0 0 1 0 11.6"/></svg>';
+
 /* A term is "single" (no wrap allowed) when it has no internal space. */
 const isSingleWord = (term) => !/\s/.test(String(term || '').trim());
 
@@ -386,7 +390,7 @@ function renderCard() {
     <div class="fc-term ${termCls}">${esc(e.term)}</div>
     ${e.ipa ? `<div class="fc-ipa">${esc(e.ipa)}</div>` : ''}
     ${e.pos ? `<div class="fc-pos">${esc(e.pos)}${e.level ? ' ・ ' + esc(e.level) : ''}</div>` : ''}
-    <button class="fc-speak" id="frontSpeak" aria-label="発音">🔊</button>
+    <button class="fc-speak" id="frontSpeak" aria-label="発音">${SPK_ICON}</button>
     <div class="fc-hint-flip">タップで意味を表示</div>`;
   fitTermFont($('.fc-term', front));
 
@@ -400,6 +404,9 @@ function renderCard() {
   $$('.speak-inline', $('#cardBack')).forEach((b) => {
     b.addEventListener('click', (ev) => { ev.stopPropagation(); speak(b.dataset.say || ''); });
   });
+
+  // カード表示時に見出し語を自動読み上げ(クイズと同じ挙動)。iOS初回は無音になり得るが仕様上許容。
+  try { speak(e.term); } catch (_) {}
 }
 
 /* ---------- Quiz (4-choice) mode ---------- */
@@ -475,7 +482,7 @@ function renderQuiz() {
   $('#quizPrompt').innerHTML = `
     <div class="quiz-term ${termCls}">${esc(e.term)}</div>
     ${e.ipa ? `<div class="quiz-ipa">${esc(e.ipa)}</div>` : ''}
-    <button class="quiz-speak" id="quizSpeak" aria-label="発音">🔊</button>`;
+    <button class="quiz-speak" id="quizSpeak" aria-label="発音">${SPK_ICON}</button>`;
   fitTermFont($('.quiz-term', $('#quizPrompt')));
   $('#quizSpeak').addEventListener('click', () => speak(e.term));
 
@@ -529,7 +536,7 @@ function answerQuiz(e, chosen, choices) {
     ${ex ? `<div class="qf-example">
       <div class="qf-ex-en">${esc(ex.en)}</div>
       ${ex.ja ? `<div class="qf-ex-ja">${esc(ex.ja)}</div>` : ''}
-      <button class="btn btn-ghost qf-replay" data-say="${esc(ex.en)}">🔊 例文をもう一度</button>
+      <button class="btn btn-ghost qf-replay" data-say="${esc(ex.en)}">${SPK_ICON} 例文をもう一度</button>
     </div>` : ''}
     <div class="qf-actions">
       <button class="btn btn-ghost qf-more" data-id="${esc(e.id)}">もっと詳しく</button>
@@ -578,13 +585,22 @@ document.addEventListener('click', (ev) => {
   }
 });
 
-function buildCardBack(e) {
+function buildCardBack(e, opts = {}) {
   const parts = [];
   parts.push(`<div class="fc-back-head">
     <span class="fc-back-term">${esc(e.term)}</span>
     ${e.ipa ? `<span class="fc-back-ipa">${esc(e.ipa)}</span>` : ''}
-    <button class="speak-inline" id="backSpeak" aria-label="発音">🔊</button>
+    <button class="speak-inline" id="backSpeak" aria-label="発音">${SPK_ICON}</button>
   </div>`);
+  // 詳細ビュー(ボトムシート等)でのみ状態・品詞・レベルのチップを見出し語の直下に出す。
+  // フラッシュカード裏面では出さない(表面に既に品詞・レベルがあるため)。
+  if (opts.meta) {
+    const chips = [];
+    if (opts.statusLabel) chips.push(opts.statusLabel);
+    if (e.pos) chips.push(e.pos);
+    if (e.level) chips.push(e.level);
+    if (chips.length) parts.push(`<div class="fc-back-meta">${chips.map((c) => `<span class="tag-chip">${esc(c)}</span>`).join('')}</div>`);
+  }
   parts.push(`<div class="fc-meaning">${esc(e.meaning_ja || '')}</div>`);
   if (e.gloss_en) parts.push(`<div class="fc-gloss">${esc(e.gloss_en)}</div>`);
 
@@ -619,14 +635,30 @@ function buildCardBack(e) {
   if (arr(e.collocations)) lex.push(`<div class="fc-block-label" style="margin-top:8px">コロケーション</div><p>${e.collocations.map(esc).join(' ・ ')}</p>`);
   if (lex.length) parts.push(`<div class="fc-block">${lex.join('')}</div>`);
 
-  const tags = [];
-  if (e.register) tags.push(e.register);
-  if (arr(e.tags)) tags.push(...e.tags);
+  if (arr(e.related)) parts.push(block('一緒に覚えたい単語',
+    `<div class="tag-row">${e.related.map((r) => `<span class="tag-chip">${esc(r)}</span>`).join('')}</div>`));
+
+  const tags = dedupTags(e);
   if (tags.length) parts.push(`<div class="fc-block"><div class="tag-row">${tags.map((t) => `<span class="tag-chip">${esc(t)}</span>`).join('')}</div></div>`);
 
   return parts.join('');
 }
 const arr = (a) => Array.isArray(a) && a.length;
+// register + tags を結合し、大文字小文字を無視して重複を除く（"academic" が register と tags で重複するのを防ぐ）
+function dedupTags(e) {
+  const out = [];
+  const seen = new Set();
+  const add = (t) => {
+    if (t == null) return;
+    const key = String(t).trim().toLowerCase();
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    out.push(t);
+  };
+  if (e.register) add(e.register);
+  if (Array.isArray(e.tags)) e.tags.forEach(add);
+  return out;
+}
 const block = (label, inner) => `<div class="fc-block"><div class="fc-block-label">${esc(label)}</div>${inner}</div>`;
 
 function flipCard() {
@@ -671,12 +703,12 @@ function buildSentenceItems() {
       if (sen && sen.en) items.push({ term: e.term, en: sen.en, ja: sen.ja || '', scene: sen.scene || 'presentation' });
     }
   }
-  return items;
+  return shuffle(items); // 開くたびに出題順をシャッフル(毎回同じ順番にならないように)
 }
 
 function renderSentence() {
   State.sent.items = buildSentenceItems();
-  if (!State.sent.index || State.sent.index >= State.sent.items.length) State.sent.index = 0;
+  State.sent.index = 0; // シャッフル後は先頭から
   showSentence();
 }
 
@@ -810,7 +842,7 @@ function buildDictCard(e) {
     <div class="dict-term ${termCls}">${esc(e.term)}</div>
     <div class="dict-metarow">
       ${e.ipa ? `<span class="dict-ipa">${esc(e.ipa)}</span>` : ''}
-      <button class="dict-speak" data-say="${esc(e.term)}" aria-label="発音">🔊</button>
+      <button class="dict-speak" data-say="${esc(e.term)}" aria-label="発音">${SPK_ICON}</button>
     </div>
     ${(e.pos || e.level) ? `<div class="dict-pos">${esc(e.pos || '')}${(e.pos && e.level) ? ' ・ ' : ''}${esc(e.level || '')}</div>` : ''}
   </div>`);
@@ -849,7 +881,7 @@ function buildDictCard(e) {
   if (Array.isArray(e.sentences) && e.sentences.length) {
     const items = e.sentences.map((sen) => `
       <div class="ex-item">
-        <div class="ex-en">${esc(sen.en)} <button class="speak-inline dict-say" data-say="${esc(sen.en)}" aria-label="発音">🔊</button></div>
+        <div class="ex-en">${esc(sen.en)} <button class="speak-inline dict-say" data-say="${esc(sen.en)}" aria-label="発音">${SPK_ICON}</button></div>
         ${sen.ja ? `<div class="ex-ja">${esc(sen.ja)}</div>` : ''}
         ${sen.scene ? `<div class="ex-scene">${esc(sen.scene)}</div>` : ''}
       </div>`).join('');
@@ -866,12 +898,11 @@ function buildDictCard(e) {
   lex += lexChips('言い換え', e.paraphrases);
   lex += lexChips('反意語', e.antonyms);
   lex += lexChips('コロケーション', e.collocations);
+  lex += lexChips('一緒に覚えたい単語', e.related);
   if (lex) parts.push(`<div class="fc-block">${lex}</div>`);
 
   // ---- Tags ----
-  const tags = [];
-  if (e.register) tags.push(e.register);
-  if (arr(e.tags)) tags.push(...e.tags);
+  const tags = dedupTags(e);
   if (tags.length) parts.push(`<div class="fc-block"><div class="tag-row">${tags.map((t) => `<span class="tag-chip">${esc(t)}</span>`).join('')}</div></div>`);
 
   // ---- "覚えた" action (applyGrade good 相当) ----
@@ -1008,16 +1039,7 @@ function openSheet(e) {
   const c = $('#sheetContent');
   const st = (State.progress[e.id] && State.progress[e.id].status) || 'new';
   const stLabel = { new: '未学習', learning: '学習中', review: '復習', mastered: '習得済み' }[st] || st;
-  c.innerHTML = `
-    <div class="fc-back-head">
-      <span class="fc-back-term">${esc(e.term)}</span>
-      ${e.ipa ? `<span class="fc-back-ipa">${esc(e.ipa)}</span>` : ''}
-      <button class="speak-inline" id="sheetSpeak" aria-label="発音">🔊</button>
-    </div>
-    <div style="margin-bottom:12px"><span class="tag-chip">${stLabel}</span>
-      ${e.pos ? `<span class="tag-chip">${esc(e.pos)}</span>` : ''}
-      ${e.level ? `<span class="tag-chip">${esc(e.level)}</span>` : ''}</div>
-    ${buildCardBack(e)}`;
+  c.innerHTML = buildCardBack(e, { meta: true, statusLabel: stLabel });
   const speak1 = $('#sheetSpeak', c);
   if (speak1) speak1.addEventListener('click', () => speak(e.term));
   const bs = $('#backSpeak', c);
@@ -1075,6 +1097,10 @@ const statBox = (n, l) => `<div class="stat-box"><span class="stat-box-num">${n}
 function wire() {
   // tabs
   $$('.tab').forEach((t) => t.addEventListener('click', () => goTab(t.dataset.tab)));
+
+  // 左上のアプリ名タップでホームへ
+  const brand = $('#brandHome');
+  if (brand) brand.addEventListener('click', () => goTab('home'));
 
   // home
   $('#startStudyBtn').addEventListener('click', () => startStudy());

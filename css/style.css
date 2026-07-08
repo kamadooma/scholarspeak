@@ -68,11 +68,18 @@ html, body {
 body {
   overflow: hidden;
   overscroll-behavior: none;
+  max-width: 100%;
 }
+/* 画像・メディアはコンテナ幅を超えない(横はみ出し防止) */
+img, video { max-width: 100%; }
 
 button, input, select { font-family: inherit; color: inherit; }
 button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 em { font-style: normal; }
+
+/* ---------- 統一アイコン(スピーカー): currentColor継承・線スタイルはタブと共通 ---------- */
+.ico-spk { width: 22px; height: 22px; display: block; }
+.btn .ico-spk { width: 16px; height: 16px; display: inline-block; vertical-align: -3px; margin-right: 3px; }
 
 #app {
   display: flex;
@@ -99,7 +106,8 @@ em { font-style: normal; }
   justify-content: space-between;
   padding: 0 18px;
 }
-.brand { display: flex; align-items: center; gap: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; background: transparent; border: none; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.brand:active { opacity: .7; }
 .brand-mark {
   width: 30px; height: 30px;
   display: grid; place-items: center;
@@ -134,14 +142,15 @@ em { font-style: normal; }
 
 /* ---------- Main / screens ---------- */
 .main {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0; /* flex子がコンテンツ高で膨らむのを防ぎ、overflow-yスクロールを有効化（iOS Safariで下にスクロールできない不具合の修正） */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   position: relative;
 }
 .screen { min-height: 100%; }
 .screen-pad {
-  padding: 18px 18px calc(var(--tabbar-h) + var(--safe-b) + 28px);
+  padding: 18px 18px 28px;
 }
 
 /* ---------- Cards (blush / soft-lilac faces, 20px, 1px cobalt frame) ---------- */
@@ -273,9 +282,9 @@ em { font-style: normal; }
   display: grid; place-items: center;
   font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: var(--tr-display);
 }
-.deck-meta { flex: 1; min-width: 0; }
-.deck-name { font-family: var(--display); font-weight: 500; font-size: 20px; line-height: 1.05; letter-spacing: var(--tr-h24); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--cobalt); }
-.deck-sub { font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: var(--tr-small); color: var(--cobalt); margin-top: 4px; }
+.deck-meta { flex: 1; min-width: 0; display: block; }
+.deck-name { display: block; font-family: var(--display); font-weight: 500; font-size: 20px; line-height: 1.15; letter-spacing: var(--tr-h24); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--cobalt); }
+.deck-sub { display: block; font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: var(--tr-small); color: var(--cobalt); margin-top: 4px; }
 .deck-due {
   font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: var(--tr-small);
   background: var(--lime); color: var(--cobalt);
@@ -363,6 +372,7 @@ em { font-style: normal; }
 .fc-back-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
 .fc-back-term { font-family: var(--display); font-size: 32px; font-weight: 700; line-height: 0.95; letter-spacing: var(--tr-h32); color: var(--cobalt); overflow-wrap: normal; word-break: keep-all; }
 .fc-back-ipa { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: var(--tr-small); color: var(--cobalt); }
+.fc-back-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .fc-meaning { font-size: 20px; font-weight: 700; letter-spacing: var(--tr-small); margin: 8px 0 4px; color: var(--cobalt); }
 .fc-gloss { font-size: 14px; font-weight: 400; color: var(--cobalt); opacity: .8; margin-bottom: 16px; }
 
@@ -407,13 +417,15 @@ em { font-style: normal; }
 }
 .speak-inline {
   border: var(--bw) solid var(--cobalt); background: transparent; color: var(--cobalt);
-  border-radius: var(--radius-round); padding: 3px 11px; font-size: 13px; margin-left: 6px;
+  border-radius: var(--radius-round); padding: 5px 9px; font-size: 13px; margin-left: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
 }
+.speak-inline .ico-spk { width: 16px; height: 16px; }
 
 /* Grade buttons */
 .study-actions {
   display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; align-items: center;
-  padding: 12px 18px calc(var(--tabbar-h) + var(--safe-b) + 16px);
+  padding: 12px 18px 16px;
 }
 .grade-btn {
   display: flex; align-items: center; justify-content: center; gap: 7px;
@@ -687,8 +699,10 @@ input[type="range"]::-webkit-slider-thumb {
 
 /* ---------- Tab bar (lavender, cobalt icons, lime chip active) ---------- */
 .tabbar {
-  position: absolute; bottom: 0; left: 0; right: 0; z-index: 40;
-  height: calc(var(--tabbar-h) + var(--safe-b));
+  /* 通常フローの最下段に配置(絶対配置をやめ、コンテンツと重ならないようにする)。
+     これで下部ボタンがタブバーに隠れる/押せない不具合を構造的に防ぐ。 */
+  flex: 0 0 auto; z-index: 40;
+  min-height: var(--tabbar-h);
   padding-bottom: var(--safe-b);
   display: flex;
   background: var(--lavender);
@@ -699,7 +713,8 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 4px; color: var(--cobalt);
 }
-.tab-icon { font-size: 18px; line-height: 1; }
+.tab-icon { font-size: 18px; line-height: 0; display: inline-flex; }
+.tab-icon svg { width: 22px; height: 22px; display: block; }
 .tab-lbl { font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: var(--tr-small); white-space: nowrap; }
 .tab.active {
   color: var(--cobalt);
@@ -712,8 +727,8 @@ input[type="range"]::-webkit-slider-thumb {
 /* 6 tabs: tighten label typography so nothing wraps on narrow phones */
 @media (max-width: 400px) {
   .tab { gap: 3px; }
-  .tab-icon { font-size: 16px; }
-  .tab-lbl { font-size: 9px; letter-spacing: 0; }
+  .tab-icon svg { width: 20px; height: 20px; }
+  .tab-lbl { font-size: 8.5px; letter-spacing: 0; }
 }
 
 /* ---------- Study mode toggle (segmented, lime selected) ---------- */
@@ -740,7 +755,7 @@ input[type="range"]::-webkit-slider-thumb {
 /* ---------- Quiz ---------- */
 .quiz-body {
   flex: 1; display: flex; flex-direction: column;
-  padding: 12px 18px 4px; gap: var(--gap);
+  padding: 12px 18px 16px; gap: var(--gap);
   overflow-y: auto; -webkit-overflow-scrolling: touch;
 }
 .quiz-prompt {
